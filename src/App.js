@@ -1,13 +1,10 @@
-import Button from "./components/Button";
-import Input from "./components/Input";
-import Logo from "./components/Logo";
+import './App.css';
+import Routes from './pages/routes';
 
 function App() {
   return (
     <div className="App">
-      <Logo />
-      <Button />
-      <Input />
+      <Routes />
     </div>
   );
 }
