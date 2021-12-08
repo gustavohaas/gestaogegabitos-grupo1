@@ -24,6 +24,7 @@ export default createGlobalStyle`
         justify-content: center;
         height:100vh;
         width: 100vw;
+        background-color: var(---black);
 
         font-family: "Roboto", serif ;
         font-size: 1rem;
