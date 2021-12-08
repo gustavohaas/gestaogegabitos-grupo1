@@ -9,7 +9,7 @@ export default createGlobalStyle`
     }
 
     :root{
-        --btn-rgba: linear-gradient(90deg, #fc466b 0%,#5c5ae5 103.5%,rgba(63, 94, 251, 0) 104.96%);
+        --btnrgba: linear-gradient(90deg, #fc466b 0%,#5c5ae5 103.5%,rgba(63, 94, 251, 0) 104.96%);
         --darkgrey: #222222;
         --white: #ffffff;
         --black:#000000;
