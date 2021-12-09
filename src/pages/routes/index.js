@@ -1,11 +1,7 @@
 import { Route, Switch } from "react-router";
-
 import Dashboard from "../Dashboard";
 
-
 function Routes() {
-
-
 
     return (
         <>
@@ -18,6 +14,9 @@ function Routes() {
                 </Route>
                 <Route path='/signin'>
                   <SignIn />
+                 </Route>
+                <Route path="/signup">
+                  <SignUp />
                 </Route>
             </Switch>
         </>

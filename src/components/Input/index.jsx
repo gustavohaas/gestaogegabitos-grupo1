@@ -1,11 +1,11 @@
 import { Container, InputStyled } from "./style";
 
-const Input = ({ register, name, error, ...rest }) => {
+const Input = ({ register, name, ...rest }) => {
+
   return (
     <>
       <Container>
         <InputStyled {...register(name)} {...rest} />
-
         <div>{error && <span>{error}</span>}</div>
       </Container>
     </>
