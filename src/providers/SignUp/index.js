@@ -1,33 +1,24 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import api from "../../services/api";
+import { createContext, useContext } from "react";
 import { toast } from "react-toastify";
+import api from "../../services/api";
 
 const SignUpContext = createContext();
 
-export const SignUp = ({ children }) => {
-  const [isAuth, setIsAuth] = useState(false);
-
-  useEffect(() => {
-    const token = JSON.parse(localStorage.getItem("@Dev:token"));
-    if (token) {
-      setIsAuth(true);
-    }
-  }, [isAuth]);
-
+export const SignUpProvider = ({ children }) => {
   const signup = (data, history) => {
+    console.log(data);
     api
       .post("users/", data)
-      .then((response) => {
-        toast.success("Conta criada com sucesso!");
+      .then((res) => {
+        console.log(res);
+        toast.success("cadastro sucess!");
         history.push("/login");
       })
-      .catch((error) => toast.error("Usuário já existe."));
+      .catch((e) => toast.error("desculpe houve uma falha"));
   };
-
   return (
     <SignUpContext.Provider
       value={{
-        isAuth,
         signup,
       }}
     >
@@ -35,4 +26,4 @@ export const SignUp = ({ children }) => {
     </SignUpContext.Provider>
   );
 };
-export const useAuth = () => useContext(SignUpContext);
+export const useSignUp = () => useContext(SignUpContext);

@@ -1,13 +1,15 @@
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { useAuth } from "../../providers/SignUp";
-import { useHistory, Redirect } from "react-router-dom";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
+import { useSignUp } from "../../providers/SignUp";
+import { Link, useHistory } from "react-router-dom";
+import Logo from "../../components/Logo";
+import { Errors, Footer, Form, Span } from "./style";
 
 const SignUp = () => {
-  const { signup, isAuth } = useAuth();
+  const { signup } = useSignUp();
   const history = useHistory();
 
   const schema = yup.object().shape({
@@ -25,27 +27,38 @@ const SignUp = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const handleForm = ({ username, email, password }) => {
-    const user = { username, email, password };
-
-    signup(user, history);
+  const handleForm = (data) => {
+    signup(data, history);
   };
-
-  if (isAuth) {
-    return <Redirect to="/" />;
-  }
 
   return (
     <>
-      <form onSubmit={handleSubmit(handleForm)}>
-        <Input placeholder="Usuário" {...register("username")} />
-        <p>error={errors.username?.message}</p>
-        <Input placeholder="Email" {...register("email")} />
-        <p>error={errors.email?.message}</p>
-        <Input placeholder="Senha" {...register("password")} />
-        <p>error={errors.password?.message}</p>
+      <Logo />
+      <Form onSubmit={handleSubmit(handleForm)}>
+        <Input name="username" placeholder="Usuário" register={register} />
+        <Errors> {errors.username?.message}</Errors>
+        <Input
+          name="email"
+          type="email"
+          placeholder="Email"
+          register={register}
+        />
+        <Errors>{errors.email?.message}</Errors>
+        <Input
+          name="password"
+          type="password"
+          placeholder="Senha"
+          register={register}
+        />
+        <Errors>{errors.password?.message}</Errors>
         <Button type="submit">Cadastrar</Button>
-      </form>
+        <Footer>
+          Já está cadastrado?
+          <Span>
+            <Link to="/login">Login</Link>
+          </Span>
+        </Footer>
+      </Form>
     </>
   );
 };

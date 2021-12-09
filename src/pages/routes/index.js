@@ -3,13 +3,11 @@ import SignUp from "../SignUp";
 
 function Routes() {
   return (
-    <>
-      <Switch>
-        <Route path="/signUp">
-          <SignUp />
-        </Route>
-      </Switch>
-    </>
+    <Switch>
+      <Route path="/signup">
+        <SignUp />
+      </Route>
+    </Switch>
   );
 }
 
