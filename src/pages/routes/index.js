@@ -5,7 +5,7 @@ function Routes() {
   return (
     <>
       <Switch>
-        <Route>
+        <Route path="/">
           <SignIn></SignIn>
         </Route>
       </Switch>
