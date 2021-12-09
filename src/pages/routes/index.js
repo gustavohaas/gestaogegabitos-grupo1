@@ -5,8 +5,8 @@ function Routes() {
   return (
     <>
       <Switch>
-        <Route>
-          <SignIn></SignIn>
+        <Route path='/signin'>
+          <SignIn />
         </Route>
       </Switch>
     </>
