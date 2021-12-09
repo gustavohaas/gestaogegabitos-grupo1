@@ -18,12 +18,15 @@ const SignInProvider = ({ children }) => {
   }, [isAuth]);
 
   const signIn = (data) => {
-    api.post("sessions/", data).then((_) => {
-      history.push("/dashboard");
-      toast.success(`Seja bem vindo ${data.username}`);
-    });
+    api
+      .post("/sessions/", data)
+      .then((_) => {
+        history.push("/dashboard");
+        toast.success(`Seja bem vindo ${data.username}`);
+      })
+      .catch((error) => console.log("ddd", error));
   };
-
+  //Falta adicionar toast com "usuário ou senha inválidos"
   const toSignUp = () => {
     history.push("/signup");
   };

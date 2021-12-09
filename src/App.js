@@ -1,9 +1,12 @@
-import Routes from './pages/routes';
+import Routes from "./pages/routes";
+import SignInProvider from "./providers/SignIn";
 
 function App() {
   return (
-    <div className="App"> 
-      <Routes />
+    <div className="App">
+      <SignInProvider>
+        <Routes />
+      </SignInProvider>
     </div>
   );
 }
