@@ -18,5 +18,6 @@ export const Container = styled.div`
 export const InputStyled = styled.input`
   width: 335px;
   border: none;
+  height: auto;
   background-color: none;
 `;

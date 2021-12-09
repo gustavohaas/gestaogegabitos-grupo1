@@ -1,9 +1,9 @@
 import { Btn } from "./style";
 
-const Button = ({ children }) => {
+const Button = ({ children, onClick }) => {
   return (
     <>
-      <Btn>{children}</Btn>
+      <Btn onClick={onClick}>{children}</Btn>
     </>
   );
 };
