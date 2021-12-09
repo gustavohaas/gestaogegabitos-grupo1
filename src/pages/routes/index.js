@@ -1,5 +1,7 @@
 import { Route, Switch } from "react-router";
 import Dashboard from "../Dashboard";
+import SignIn from '../SignIn';
+import SignUp from '../SignUp';
 
 function Routes() {
 
