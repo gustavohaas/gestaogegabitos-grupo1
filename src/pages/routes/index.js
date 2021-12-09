@@ -1,14 +1,26 @@
 import { Route, Switch } from "react-router";
-import SignUp from "../SignUp";
+import Dashboard from "../Dashboard";
 
 function Routes() {
-  return (
-    <Switch>
-      <Route path="/signup">
-        <SignUp />
-      </Route>
-    </Switch>
-  );
+
+    return (
+        <>
+            <Switch>
+                <Route path="/dashboard">
+                    <Dashboard />
+                </Route>
+                <Route path="/">
+                    <h1>Home</h1>
+                </Route>
+                <Route path='/signin'>
+                  <SignIn />
+                 </Route>
+                <Route path="/signup">
+                  <SignUp />
+                </Route>
+            </Switch>
+        </>
+    )
 }
 
 export default Routes;
