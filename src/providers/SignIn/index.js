@@ -32,6 +32,13 @@ const SignInProvider = ({ children }) => {
       })
       .catch((error) => toast.error("Usuário ou senha inválidos"));
   };
+  console.log(decoded);
+  const { user_id } = decoded;
+  useEffect(() => {
+    setUserId(user_id);
+  }, []);
+
+  console.log(user_id);
 
   const toSignUp = () => {
     history.push("/signup");
