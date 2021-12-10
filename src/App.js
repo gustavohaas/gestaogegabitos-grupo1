@@ -17,7 +17,6 @@ function App() {
         pauseOnHover
       />
 
-      <ToastContainer />
       <GlobalStyle />
       <Routes />
     </div>

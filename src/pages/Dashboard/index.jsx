@@ -8,7 +8,7 @@ import { useContext } from "react";
 import MiniButton from "";
 import { DashboardContext } from "../../providers/Dashboard";
 const Dashboard = () => {
-  const { removeHabit } = useContext(DashboardContext);
+  const { removeHabit, editHabit } = useContext(DashboardContext);
 
   return (
     <>
@@ -34,6 +34,7 @@ const Dashboard = () => {
             <Collapsible title="Categoria">
               <p>Tarefa</p>
             </Collapsible>
+            <MiniButton onClick={editHabit}>...</MiniButton>
             <MiniButton onClick={removeHabit}>X</MiniButton>
           </div>
         </main>
