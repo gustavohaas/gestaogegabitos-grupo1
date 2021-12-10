@@ -14,7 +14,8 @@ const GlobalStyle = createGlobalStyle`
         --white: #ffffff;
         --black:#000000;
         --popup-color: #0B0B0B;
-
+        --purple-blue: #5c5ae5;
+        --vivid-pink: #fc466b;
     }
 
     body{
@@ -26,9 +27,10 @@ const GlobalStyle = createGlobalStyle`
         width: 100vw;
         background-color: var(--black);
         color: var(--white);
-        font-family: "Roboto", serif ;
+        font-family: "Roboto", sans-serif ;
         font-size: 1rem;
     }
+
     input, button{
         font-size: 1rem;
         
@@ -38,7 +40,7 @@ const GlobalStyle = createGlobalStyle`
         cursor: pointer;
     }
 
-    h2,h3,h4{
+    h1, h2 , h3, h4{
         font-weight: 700;
     }
 
