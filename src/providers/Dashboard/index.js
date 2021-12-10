@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 import { useState } from "react";
 import { createContext } from "react/cjs/react.development";
-import api from "../../services";
+import api from "../../services/api";
 
 export const DashboardContext = createContext();
 

@@ -24,9 +24,9 @@ const SignInProvider = ({ children }) => {
         history.push("/dashboard");
         toast.success(`Seja bem vindo ${data.username}`);
       })
-      .catch((error) => console.log("ddd", error));
+      .catch((error) => console.log(error));
   };
-  //Falta adicionar toast com "usuário ou senha inválidos"
+
   const toSignUp = () => {
     history.push("/signup");
   };
