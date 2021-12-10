@@ -15,7 +15,7 @@ function Routes() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/signin">
+        <Route path="/login">
           <SignIn />
         </Route>
         <Route path="/signup">
