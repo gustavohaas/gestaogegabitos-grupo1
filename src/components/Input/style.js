@@ -1,23 +1,21 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 343px;
+  width: 100%;
   height: 48px;
 
   background: var(--popup-color);
-  mix-blend-mode: normal;
-  border: 1.5px solid var(--darkgrey);
+  border: 2px solid var(--darkgrey);
   box-sizing: border-box;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 12px;
-  transform: rotate(-0.05deg);
   display: flex;
+  justify-content: center;
   align-items: center;
 `;
 
 export const InputStyled = styled.input`
-  width: 335px;
+  width: 85%;
   border: none;
-  height: auto;
-  background-color: none;
+  color: var(--white);
+  background-color: var(--popup-color);
 `;
