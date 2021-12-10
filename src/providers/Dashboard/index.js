@@ -24,8 +24,16 @@ const DashboardProvider = ({ children }) => {
       .catch((_) => toast.error("Hábito não encontrado"));
   };
 
+  const editHabit = (habit) => {
+    api
+      .patch(`/habits/${habit.id}`)
+      .catch((_) => toast.error("Hábito não encontrado"));
+  };
+
   return (
-    <DashboardContext.Provider value={{ habits, addHabit, deleteHabit }}>
+    <DashboardContext.Provider
+      value={{ habits, addHabit, deleteHabit, editHabit }}
+    >
       {children}
     </DashboardContext.Provider>
   );
