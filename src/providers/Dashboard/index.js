@@ -1,0 +1,42 @@
+import { toast } from "react-toastify";
+import { useState } from "react";
+import { createContext } from "react/cjs/react.development";
+import api from "../../services/api";
+
+export const DashboardContext = createContext();
+
+const DashboardProvider = ({ children }) => {
+  const [habits, setHabits] = useState({});
+
+  const addHabit = (data) => {
+    api
+      .post("/habits/", data)
+      .then((resp) => {
+        setHabits([...habits, resp]);
+        toast.success("Hábito cadastrado com sucesso");
+      })
+      .catch((_) => toast.error("Houve um erro ao cadastrar hábito"));
+  };
+
+  const deleteHabit = (habit) => {
+    api
+      .delete(`/habits/${habit.id}`)
+      .catch((_) => toast.error("Hábito não encontrado"));
+  };
+
+  const editHabit = (habit) => {
+    api
+      .patch(`/habits/${habit.id}`)
+      .catch((_) => toast.error("Hábito não encontrado"));
+  };
+
+  return (
+    <DashboardContext.Provider
+      value={{ habits, addHabit, deleteHabit, editHabit }}
+    >
+      {children}
+    </DashboardContext.Provider>
+  );
+};
+
+export default DashboardProvider;
