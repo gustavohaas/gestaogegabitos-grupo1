@@ -47,7 +47,7 @@ const SignIn = () => {
         <Button type="submit">Entrar</Button>
       </form>
       <div className="BtnSignUp">
-        <span>Ainda não possui uma conta</span>
+        <span>Ainda não possui uma conta?</span>
         <button onClick={handleClick}>Cadastre-se</button>
       </div>
     </Container>
