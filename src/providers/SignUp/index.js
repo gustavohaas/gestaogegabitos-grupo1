@@ -11,7 +11,7 @@ export const SignUpProvider = ({ children }) => {
       .post("users/", data)
       .then((res) => {
         console.log(res);
-        toast.success("cadastro sucess!");
+        toast.success("Usuário cadastrado com sucesso!");
         history.push("/login");
       })
       .catch((e) => toast.error("desculpe houve uma falha"));

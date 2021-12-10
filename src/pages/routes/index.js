@@ -11,7 +11,7 @@ function Routes() {
                 <Route path="/dashboard">
                     <Dashboard />
                 </Route>
-                <Route path="/">
+                <Route exact path="/">
                     <h1>Home</h1>
                 </Route>
                 <Route path='/signin'>
