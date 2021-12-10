@@ -1,13 +1,15 @@
 import Routes from "./pages/routes";
-import SignInProvider from "./providers/SignIn";
+import GlobalStyle from "./style/global";
 
 function App() {
   return (
-    <div className="App">
-      <SignInProvider>
+    <>
+      <GlobalStyle />
+      <div className="App">
         <Routes />
-      </SignInProvider>
-    </div>
+      </div>
+    </>
+>>>>>>> develop
   );
 }
 
