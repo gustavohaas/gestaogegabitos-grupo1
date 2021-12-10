@@ -13,7 +13,7 @@ const SignInProvider = ({ children }) => {
   const [decoded, setDecoded] = useState({});
 
   useEffect(() => {
-    const token = JSON.parse(localStorage.getItem("@Habitactics:token"));
+    const token = JSON.parse(localStorage.getItem("@Habitactics:token") || []);
 
     if (token) {
       return setIsAuth(true);
@@ -51,5 +51,3 @@ const SignInProvider = ({ children }) => {
 };
 
 export default SignInProvider;
-
-//Falta conseguir o Id do usuário pelo jwt decodificado. Não entendi essa parte da doc
