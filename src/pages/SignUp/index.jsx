@@ -16,9 +16,10 @@ const SignUp = () => {
     username: yup
       .string()
       .min(3, "Mínimo de 3 letras")
-      .max(12, "máximo de 12 letras"),
-    email: yup.string().email("E-mail inválido"),
-    password: yup.string().min(6, "Mínimo de 6 dígitos"),
+      .max(12, "máximo de 12 letras")
+      .required("Campo obrigatório"),
+    email: yup.string().email("E-mail inválido").required("Campo obrigatório"),
+    password: yup.string().min(6, "Mínimo de 6 dígitos").required("Campo obrigatório"),
   });
 
   const {

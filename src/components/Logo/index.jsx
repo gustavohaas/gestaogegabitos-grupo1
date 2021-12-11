@@ -4,7 +4,7 @@ import iconLogo from "../../assets/logo.png";
 const Logo = () => {
   return (
     <Header>
-      <LogoTitle>Habitatics</LogoTitle>
+      <LogoTitle>Habitactics</LogoTitle>
       <LogoImage src={iconLogo} />
     </Header>
   );
