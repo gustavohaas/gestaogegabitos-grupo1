@@ -4,6 +4,7 @@ import Dashboard from "../Dashboard";
 import SignIn from "../SignIn";
 import SignUp from "../SignUp";
 import EditProfile from "../EditProfile";
+import Progress from "../Progress";
 
 function Routes() {
   return (
@@ -23,6 +24,9 @@ function Routes() {
         </Route>
         <Route path="/profile">
           <EditProfile />
+        </Route>
+        <Route path="/progress">
+          <Progress />
         </Route>
       </Switch>
     </>
