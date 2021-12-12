@@ -13,7 +13,7 @@ const SignInProvider = ({ children }) => {
   const [decoded, setDecoded] = useState({});
 
   useEffect(() => {
-    const token = JSON.parse(localStorage.getItem("@Habitactics:token"));
+    const token = JSON.parse(localStorage.getItem("@Habitactics:token")) || [];
 
     if (token) {
       return setIsAuth(true);
@@ -22,7 +22,7 @@ const SignInProvider = ({ children }) => {
 
   const signIn = (data) => {
     api
-      .post("/sessions/", data)
+      .post("sessions/", data)
       .then((response) => {
         const { access } = response.data;
         localStorage.setItem("@Habitactics:token", JSON.stringify(access));

@@ -2,7 +2,7 @@ import Header from "../../components/Header";
 import { Container } from "./styles";
 import Menu from "../../components/Menu";
 import { useContext } from "react/cjs/react.development";
-import { ProgressProvider } from "../../providers/Progress";
+import ProgressProvider from "../../providers/Progress/index";
 
 const Progress = () => {
   const { hab } = useContext(ProgressProvider);

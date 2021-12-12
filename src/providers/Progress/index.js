@@ -6,11 +6,11 @@ export const ProgressContext = createContext();
 
 const ProgressProvider = ({ children }) => {
   const [hab, setHab] = useState({});
-  const token = JSON.parse(localStorage.getItem("@Habitactics:token"));
+  const token = JSON.parse(localStorage.getItem("@Habitactics:token")) || [];
 
   useEffect(() => {
     api
-      .get("/habits/personal/", {
+      .get("habits/personal/", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
