@@ -37,7 +37,7 @@ const SignIn = () => {
       </div>
 
       <form onSubmit={handleSubmit(handleSignIn)}>
-        <label for="name">
+        <label for="username">
           Usuário <span>{errors.username?.message}</span>
         </label>
         <Input icon={FiUser} name="username" register={register} />

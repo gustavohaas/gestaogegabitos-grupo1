@@ -5,8 +5,8 @@ import Input from "../../components/Input";
 import Button from "../../components/Button";
 import { useSignUp } from "../../providers/SignUp";
 import { Link, useHistory } from "react-router-dom";
-import Logo from "../../components/Logo";
-import { Errors, Footer, Form, Span } from "./style";
+import { Container } from "./style";
+import { FiUser, FiMail, FiLock } from "react-icons/fi";
 
 const SignUp = () => {
   const { signup } = useSignUp();
@@ -15,11 +15,13 @@ const SignUp = () => {
   const schema = yup.object().shape({
     username: yup
       .string()
-      .min(3, "Mínimo de 3 letras")
-      .max(12, "máximo de 12 letras")
+      .min(3, "Digite ao menos 3 caracteres")
       .required("Campo obrigatório"),
-    email: yup.string().email("E-mail inválido").required("Campo obrigatório"),
-    password: yup.string().min(6, "Mínimo de 6 dígitos").required("Campo obrigatório"),
+    email: yup.string().email("Email inválido").required("Campo obrigatório"),
+    password: yup
+      .string()
+      .min(6, "Mínimo de 6 dígitos")
+      .required("Campo obrigatório"),
   });
 
   const {
@@ -33,34 +35,37 @@ const SignUp = () => {
   };
 
   return (
-    <>
-      <Logo />
-      <Form onSubmit={handleSubmit(handleForm)}>
-        <Input name="username" placeholder="Usuário" register={register} />
-        <Errors> {errors.username?.message}</Errors>
+    <Container>
+      <div>
+        <h2>Cadastre-se</h2>
+      </div>
+
+      <form onSubmit={handleSubmit(handleForm)}>
+        <label for="username">
+          Usuário <span>{errors.username?.message}</span>
+        </label>
+        <Input icon={FiUser} name="username" register={register} />
+        <label for="name">
+          Email <span>{errors.email?.message}</span>
+        </label>
+        <Input icon={FiMail} name="email" register={register} />
+        <label for="password">
+          Senha <span>{errors.password?.message}</span>
+        </label>
         <Input
-          name="email"
-          type="email"
-          placeholder="Email"
-          register={register}
-        />
-        <Errors>{errors.email?.message}</Errors>
-        <Input
+          icon={FiLock}
           name="password"
-          type="password"
-          placeholder="Senha"
           register={register}
+          type="password"
         />
-        <Errors>{errors.password?.message}</Errors>
         <Button type="submit">Cadastrar</Button>
-        <Footer>
-          Já está cadastrado?
-          <Span>
-            <Link to="/login">Login</Link>
-          </Span>
-        </Footer>
-      </Form>
-    </>
+      </form>
+
+      <div className="BtnSignUp">
+        <span> Já possui uma conta?</span>
+        <Link to="/signup">Clique aqui</Link>
+      </div>
+    </Container>
   );
 };
 
