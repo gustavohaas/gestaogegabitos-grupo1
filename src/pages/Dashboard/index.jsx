@@ -7,8 +7,7 @@ import { useContext } from "react";
 import MiniButton from "../../components/MiniButon";
 import { DashboardContext } from "../../providers/Dashboard";
 const Dashboard = () => {
-
-  const { removeHabit, editHabit, addHowMuch, achieveHabit } =
+  const { deleteHabit, addHowMuch, searchHabit, achieveHabit, editHabit } =
     useContext(DashboardContext);
 
   return (
@@ -32,10 +31,17 @@ const Dashboard = () => {
         </nav>
         <main>
           <div className="tasks">
-            <MiniButton onClick={addHowMuch}>+</MiniButton>
+            <div>
+              <MiniButton onClick={addHowMuch}>+</MiniButton>
+              <span> Hábito X</span>
+            </div>
+
+            <div>
+              <MiniButton onClick={searchHabit}>Pes</MiniButton>
+            </div>
             <MiniButton onClick={editHabit}>...</MiniButton>
             <Button onClick={achieveHabit}>Hábito Alcançado</Button>
-            <Button onClick={removeHabit}>Remover Hábito</Button>
+            <Button onClick={deleteHabit}>Remover Hábito</Button>
           </div>
         </main>
         <footer>
