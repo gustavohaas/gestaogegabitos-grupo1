@@ -3,11 +3,17 @@ import { Container } from "./styles";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import Menu from "../../components/Menu";
-import { FiMail, FiLock, FiUser } from "react-icons/fi";
+import { FiMail, FiUser } from "react-icons/fi";
+import { toast } from "react-toastify";
 
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+
+import { useContext } from "react";
+import { SignInContext } from "../../providers/SignIn";
+
+import api from "../../services/api";
 
 const EditProfile = () => {
   const schema = yup.object().shape({
@@ -16,7 +22,6 @@ const EditProfile = () => {
       .string()
       .email("Digite um email válido")
       .required("Campo obrigatório"),
-    password: yup.string().required("Campo obrigatório"),
   });
 
   const {
@@ -25,8 +30,14 @@ const EditProfile = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
+  const { userId } = useContext(SignInContext);
+  console.log(userId);
+  const token = JSON.parse(localStorage.getItem("@Habitactics:token")) || [];
+  console.log(token);
+
   const updateUserData = (data) => {
     console.log(data);
+    api.patch(`/users/${userId}/`);
   };
 
   return (
@@ -45,15 +56,6 @@ const EditProfile = () => {
             Email <span>{errors.email?.message}</span>
           </label>
           <Input icon={FiMail} name="email" register={register} />
-          <label for="password">
-            Senha <span>{errors.password?.message}</span>
-          </label>
-          <Input
-            icon={FiLock}
-            name="password"
-            type="password"
-            register={register}
-          />
           <Button type="submit">Atualizar dados</Button>
         </form>
       </Container>
