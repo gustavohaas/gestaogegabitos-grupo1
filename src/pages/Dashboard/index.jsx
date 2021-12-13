@@ -5,10 +5,10 @@ import Button from "../../components/Button";
 import Collapsible from "../../components/Collapsible";
 
 import { useContext } from "react";
-import MiniButton from "";
+import MiniButton from "../../components/MiniButon";
 import { DashboardContext } from "../../providers/Dashboard";
 const Dashboard = () => {
-  const { removeHabit, editHabit } = useContext(DashboardContext);
+  const { deleteHabit, editHabit } = useContext(DashboardContext);
 
   return (
     <>
@@ -35,7 +35,7 @@ const Dashboard = () => {
               <p>Tarefa</p>
             </Collapsible>
             <MiniButton onClick={editHabit}>...</MiniButton>
-            <MiniButton onClick={removeHabit}>X</MiniButton>
+            <MiniButton onClick={deleteHabit}>X</MiniButton>
           </div>
         </main>
         <footer>

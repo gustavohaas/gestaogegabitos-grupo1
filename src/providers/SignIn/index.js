@@ -14,6 +14,7 @@ const SignInProvider = ({ children }) => {
 
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("@Habitactics:token") || []);
+    setDecoded(jwt_decode(token));
 
     if (token) {
       return setIsAuth(true);
@@ -25,8 +26,10 @@ const SignInProvider = ({ children }) => {
       .post("/sessions/", data)
       .then((response) => {
         const { access } = response.data;
-        localStorage.setItem("@Habitactics:token", JSON.stringify(access));
-        setDecoded(jwt_decode(access));
+        localStorage.setItem(
+          "@Habitactics:token",
+          JSON.stringify(access) || []
+        );
         history.push("/dashboard");
         toast.success(`Seja bem vindo ${data.username}`);
       })
@@ -36,6 +39,7 @@ const SignInProvider = ({ children }) => {
   const { user_id } = decoded;
   useEffect(() => {
     setUserId(user_id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   console.log(user_id);
@@ -43,6 +47,10 @@ const SignInProvider = ({ children }) => {
   const toSignUp = () => {
     history.push("/signup");
   };
+
+  if (isAuth) {
+    history.push("/dashboard");
+  }
   return (
     <SignInContext.Provider value={{ signIn, toSignUp, userId }}>
       {children}
