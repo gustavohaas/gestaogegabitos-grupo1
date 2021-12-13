@@ -1,6 +1,7 @@
 import { Route, Switch } from "react-router";
 import Home from "../Home";
 import Dashboard from "../Dashboard";
+import Groups from "../Groups";
 import SignIn from "../SignIn";
 import SignUp from "../SignUp";
 import EditProfile from "../EditProfile";
@@ -12,6 +13,9 @@ function Routes() {
       <Switch>
         <Route path="/dashboard">
           <Dashboard />
+        </Route>
+        <Route path="/groups">
+          <Groups />
         </Route>
         <Route exact path="/">
           <Home />
