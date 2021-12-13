@@ -2,13 +2,14 @@ import { Container, IconButton } from "./style";
 import { GoGear, GoPlusSmall, GoSearch } from "react-icons/go";
 import { MdListAlt, MdPeopleOutline } from "react-icons/md";
 import Button from "../../components/Button";
-import Collapsible from "../../components/Collapsible";
 
 import { useContext } from "react";
 import MiniButton from "../../components/MiniButon";
 import { DashboardContext } from "../../providers/Dashboard";
 const Dashboard = () => {
-  const { deleteHabit, editHabit } = useContext(DashboardContext);
+
+  const { removeHabit, editHabit, addHowMuch, achieveHabit } =
+    useContext(DashboardContext);
 
   return (
     <>
@@ -31,11 +32,10 @@ const Dashboard = () => {
         </nav>
         <main>
           <div className="tasks">
-            <Collapsible title="Categoria">
-              <p>Tarefa</p>
-            </Collapsible>
+            <MiniButton onClick={addHowMuch}>+</MiniButton>
             <MiniButton onClick={editHabit}>...</MiniButton>
-            <MiniButton onClick={deleteHabit}>X</MiniButton>
+            <Button onClick={achieveHabit}>Hábito Alcançado</Button>
+            <Button onClick={removeHabit}>Remover Hábito</Button>
           </div>
         </main>
         <footer>
