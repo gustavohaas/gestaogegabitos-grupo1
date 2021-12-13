@@ -14,7 +14,8 @@ const SignInProvider = ({ children }) => {
 
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("@Habitactics:token")) || [];
-    setDecoded(jwt_decode(token));
+    //setDecoded(jwt_decode(token));
+    
     if (!token) {
       return setIsAuth(false);
     } else {

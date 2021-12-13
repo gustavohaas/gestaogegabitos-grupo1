@@ -1,9 +1,11 @@
 import { Btn } from "./style";
 
-const Button = ({ children, ...rest }) => {
+const Button = ({ children, onClick, ...rest }) => {
   return (
     <>
-      <Btn {...rest}>{children}</Btn>
+      <Btn onClick={onClick} {...rest}>
+        {children}{" "}
+      </Btn>
     </>
   );
 };
