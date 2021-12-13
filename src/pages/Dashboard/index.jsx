@@ -7,7 +7,6 @@ import { useContext } from "react";
 import MiniButton from "../../components/MiniButon";
 import { DashboardContext } from "../../providers/Dashboard";
 const Dashboard = () => {
-
   const { removeHabit, editHabit, addHowMuch, achieveHabit } =
     useContext(DashboardContext);
 

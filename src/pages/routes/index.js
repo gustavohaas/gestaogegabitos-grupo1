@@ -4,6 +4,7 @@ import Dashboard from "../Dashboard";
 import SignIn from "../SignIn";
 import SignUp from "../SignUp";
 import EditProfile from "../EditProfile";
+import Habits from "../Habits";
 
 function Routes() {
   return (
@@ -23,6 +24,9 @@ function Routes() {
         </Route>
         <Route path="/profile">
           <EditProfile />
+        </Route>
+        <Route exact path="/habits">
+          <Habits />
         </Route>
       </Switch>
     </>

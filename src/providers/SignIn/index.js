@@ -13,7 +13,7 @@ const SignInProvider = ({ children }) => {
   const [decoded, setDecoded] = useState({});
 
   useEffect(() => {
-    const token = JSON.parse(localStorage.getItem("@Habitactics:token") || []);
+    const token = JSON.parse(localStorage.getItem("@Habitactics:token")) || [];
     setDecoded(jwt_decode(token));
 
     if (token) {
@@ -48,9 +48,6 @@ const SignInProvider = ({ children }) => {
     history.push("/signup");
   };
 
-  if (isAuth) {
-    history.push("/dashboard");
-  }
   return (
     <SignInContext.Provider value={{ signIn, toSignUp, userId }}>
       {children}
