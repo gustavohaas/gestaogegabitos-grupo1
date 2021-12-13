@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { toast } from "react-toastify";
 import api from "../../services/api";
+import jwt_decode from "jwt-decode";
 
 export const SignInContext = createContext();
 
@@ -13,10 +14,10 @@ const SignInProvider = ({ children }) => {
 
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("@Habitactics:token")) || [];
-
+    setDecoded(jwt_decode(token));
     if (!token) {
       return setIsAuth(false);
-    }else {
+    } else {
       return setIsAuth(true);
     }
   }, [isAuth]);
@@ -35,15 +36,14 @@ const SignInProvider = ({ children }) => {
       })
       .catch((error) => toast.error("Usuário ou senha inválidos"));
   };
-  console.log(decoded);
-  
+  // console.log(decoded);
+
   const { user_id } = decoded;
-  
   useEffect(() => {
     setUserId(user_id);
   }, []);
 
-  console.log(user_id);
+  // console.log(user_id);
 
   const toSignUp = () => {
     history.push("/signup");
@@ -55,5 +55,4 @@ const SignInProvider = ({ children }) => {
     </SignInContext.Provider>
   );
 };
-
 export default SignInProvider;
