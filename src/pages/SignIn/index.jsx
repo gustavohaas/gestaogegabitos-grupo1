@@ -42,7 +42,7 @@ const SignIn = () => {
         </label>
         <Input icon={FiUser} name="username" register={register} />
         <label for="password">
-          Email <span>{errors.password?.message}</span>
+          Senha <span>{errors.password?.message}</span>
         </label>
         <Input
           icon={FiLock}
