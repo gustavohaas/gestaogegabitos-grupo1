@@ -42,7 +42,7 @@ const Dashboard = () => {
             <Button onClick={deleteHabit}>Remover Hábito</Button>
           </div>
         </main>
-        <Menu />
+        <Menu personalColorScheme={true}/>
       </Container>
     </>
   );

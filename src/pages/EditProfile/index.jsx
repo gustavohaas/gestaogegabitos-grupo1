@@ -55,7 +55,7 @@ const EditProfile = () => {
 
   return (
     <>
-      <Header />
+      <Header colorScheme={true} />
       <Container>
         <div>
           <h2>Minha conta</h2>

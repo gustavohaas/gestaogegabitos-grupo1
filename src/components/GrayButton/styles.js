@@ -10,4 +10,8 @@ export const Button = styled.button`
   height: 48px;
   cursor: pointer;
   font-weight: bold;
+
+  :hover {
+    filter: brightness(1.2s);
+  }
 `;

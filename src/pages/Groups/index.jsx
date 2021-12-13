@@ -5,7 +5,7 @@ const Groups = () => {
   return (
     <>
       <Header />
-      <Menu />
+      <Menu groupsColorScheme={true}/>
     </>
   );
 };
