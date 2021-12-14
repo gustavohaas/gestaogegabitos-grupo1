@@ -37,18 +37,12 @@ const Dashboard = () => {
         <main>
           <div className="tasks">
             <div>
-              <MiniButton onClick={addHowMuch}>+</MiniButton>
               <span> Hábito X</span>
+              <MiniButton onClick={addHowMuch}>+</MiniButton>
+              <MiniButton onClick={() => setIsConfigVisible(!isConfigVisible)}>
+                ...
+              </MiniButton>
             </div>
-
-            <div>
-              <MiniButton onClick={searchHabit}>Pes</MiniButton>
-            </div>
-            <MiniButton onClick={() => setIsConfigVisible(!isConfigVisible)}>
-              ...
-            </MiniButton>
-            <Button onClick={achieveHabit}>Hábito Alcançado</Button>
-            <Button onClick={deleteHabit}>Remover Hábito</Button>
           </div>
         </main>
         <Menu personalColorScheme={true} />
