@@ -1,10 +1,11 @@
+import { useState } from "react";
+
 import Header from "../../components/Header";
 import BlackButton from "../../components/BlackButton";
 import HabitsList from "../../components/HabitsList";
-import { Container, IconButton } from "./style";
+import UserProgress from "../../components/UserProgress";
+import { Container } from "./style";
 import Menu from "../../components/Menu";
-import Button from "../../components/Button";
-import MiniButton from "../../components/MiniButon";
 
 //icons
 import { GoGear, GoPlusSmall, GoSearch } from "react-icons/go";
@@ -19,6 +20,12 @@ const Dashboard = () => {
   const { deleteHabit, addHowMuch, searchHabit, achieveHabit, editHabit } =
     useContext(DashboardContext);
 
+  const [page, setPage] = useState('user');
+
+  const handlePage = (page) => {
+    setPage(page);
+  };
+
   return (
     <>
       <Container>
@@ -27,16 +34,17 @@ const Dashboard = () => {
           Olá, <br></br>usuário
         </h2>
         <div className="navContainer">
-          <BlackButton>
+          <BlackButton habitsButtonOn={true} className='habitsButton' onClick={() => handlePage("user")}>
             <BsListTask size="1em" class="listIcon" />
             Geral
           </BlackButton>
-          <BlackButton>
+          <BlackButton className='progressButton' onClick={() => handlePage("groups")}>
             <IoIosStats size="1em" class="statsIcon" />
             Progresso
           </BlackButton>
         </div>
-        <HabitsList />
+        {page === "user" ? <HabitsList /> : <UserProgress />}
+
         <Menu personalColorScheme={true} />
       </Container>
     </>
