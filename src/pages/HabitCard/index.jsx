@@ -37,7 +37,7 @@ const HabitCard = ({ habit }) => {
                 </tr>
                 <tr>
                     <th>Alcançado:</th>
-                    <td>{habit.achieved}</td>
+                    <td>{habit.achieved ? "sim" : "não"}</td>
                 </tr>
                 <tr>
                     <th>Quanto conquistou:</th>

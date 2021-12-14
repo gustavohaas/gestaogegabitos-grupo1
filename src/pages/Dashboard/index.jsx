@@ -32,7 +32,7 @@ const Dashboard = () => {
         </nav>
         <main>
           <div className="tasks">
-            {habits.length === 0 ? <button onClick={() => seekHabits()}>Carregar hábitos</button> : habits.map((habit) =>
+            {habits.map((habit) =>
               <div>
                 <MiniButton onClick={addHowMuch}>+</MiniButton>
                 <span>&nbsp;Hábito: {habit.title}</span>

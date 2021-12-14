@@ -7,6 +7,7 @@ export const Table = styled.table`
     border-spacing: 0;
     th, td {
         border: 1px solid;
+        text-align: center;
     }
 `;
 

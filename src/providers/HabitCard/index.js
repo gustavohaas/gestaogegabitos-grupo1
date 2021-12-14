@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import api from "../../services/api";
 
 export const HabitCardContext = createContext();
@@ -17,11 +17,15 @@ const HabitCardProvider = ({ children }) => {
             })
             .then((response) => {
                 const myHabits = response.data;
-                setHabits([myHabits]);
+                setHabits(myHabits);
                 console.log(habits);
             })
             .catch((error) => console.log(error));
     };
+
+    useEffect(() => {
+        seekHabits();
+    }, []);
 
     return (
         <HabitCardContext.Provider
