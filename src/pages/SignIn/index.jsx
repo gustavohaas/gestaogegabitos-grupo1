@@ -1,17 +1,22 @@
 import { Container } from "./style.js";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
-import { useForm } from "react-hook-form";
+import { FiUser, FiLock } from "react-icons/fi";
+
 import * as yup from "yup";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+
 import { useContext } from "react";
 import { SignInContext } from "../../providers/SignIn";
 
+import { Link } from "react-router-dom";
+
 const SignIn = () => {
   const { signIn, toSignUp } = useContext(SignInContext);
+
   const schema = yup.object().shape({
     username: yup.string().required("Campo obrigatório"),
-
     password: yup.string().required("Campo obrigatório"),
   });
 
@@ -25,30 +30,32 @@ const SignIn = () => {
     signIn(data);
   };
 
-  const handleClick = () => {
-    toSignUp();
-  };
-
   return (
     <Container>
-      <h2>Login</h2>
+      <div>
+        <h2>Login</h2>
+      </div>
+
       <form onSubmit={handleSubmit(handleSignIn)}>
-        <h5>Usuário</h5>
-        <Input placeholder="Usuário" name="username" register={register} />
-        <p>{errors.username?.message}</p>
-        <h5>Senha</h5>
+        <label for="name">
+          Usuário <span>{errors.username?.message}</span>
+        </label>
+        <Input icon={FiUser} name="username" register={register} />
+        <label for="password">
+          Senha <span>{errors.password?.message}</span>
+        </label>
         <Input
-          type="password"
-          placeholder="Senha"
+          icon={FiLock}
           name="password"
           register={register}
+          type="password"
         />
-        <p>{errors.password?.message}</p>
         <Button type="submit">Entrar</Button>
       </form>
+
       <div className="BtnSignUp">
         <span>Ainda não possui uma conta?</span>
-        <button onClick={handleClick}>Cadastre-se</button>
+        <Link to="/signup">Cadastre-se</Link>
       </div>
     </Container>
   );
