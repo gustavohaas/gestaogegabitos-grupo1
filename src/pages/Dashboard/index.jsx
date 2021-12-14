@@ -1,15 +1,30 @@
-import { Container, IconButton } from "./style";
+import { useState } from "react";
+
+import Header from "../../components/Header";
+import BlackButton from "../../components/BlackButton";
+import HabitsList from "../../components/HabitsList";
+import UserProgress from "../../components/UserProgress";
+import { Container } from "./style";
+import Menu from "../../components/Menu";
+
+//icons
 import { GoGear, GoPlusSmall, GoSearch } from "react-icons/go";
 import { MdListAlt, MdPeopleOutline } from "react-icons/md";
-import Button from "../../components/Button";
-import Collapsible from "../../components/Collapsible";
+import { BsListTask } from "react-icons/bs";
+import { IoIosStats } from "react-icons/io";
 
 import { useContext } from "react";
-import MiniButton from "../../components/MiniButon";
 import { DashboardContext } from "../../providers/Dashboard";
+
 const Dashboard = () => {
-  const { deleteHabit, addHowMuch, searchHabit, achieveHabit } =
+  const { deleteHabit, addHowMuch, searchHabit, achieveHabit, editHabit } =
     useContext(DashboardContext);
+
+  const [page, setPage] = useState('user');
+
+  const handlePage = (page) => {
+    setPage(page);
+  };
 
   return (
     <>

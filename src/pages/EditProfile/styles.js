@@ -38,6 +38,10 @@ export const Container = styled.div`
     }
   }
 
+  button {
+    margin-top: 15px;
+  }
+
   svg {
     color: var(--darkgrey);
     /* margin-left: 5px; */

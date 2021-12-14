@@ -14,11 +14,13 @@ const Habits = () => {
     category: yup.string().max(50, "ver com pessoal a mensagem"),
     difficulty: yup.string().max(50, "ver com pessoal a mensagem"),
   });
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
+
   const handleAddHabit = (data) => {
     const newHabit = {
       title: data.title,
@@ -34,6 +36,7 @@ const Habits = () => {
   const handleCancel = () => {
     //Somente fecha o popup
   };
+
   return (
     <Container>
       <h1>Criar Hábito</h1>

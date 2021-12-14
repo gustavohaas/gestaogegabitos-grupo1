@@ -27,6 +27,7 @@ export const Container = styled.div`
       line-height: 19px;
     }
   }
+
   h2 {
     position: absolute;
     height: 56px;
@@ -96,3 +97,4 @@ export const IconButton = styled.button`
   border-style: none;
   color: var(--white);
 `;
+
