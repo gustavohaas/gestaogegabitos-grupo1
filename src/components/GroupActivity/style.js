@@ -11,7 +11,3 @@ export const StyleListContainer = styled.div`
     display: flex;
     align-items: center;
 `
-
-export const StyleCheckbox = styled.input`
-    background: #222;
-`

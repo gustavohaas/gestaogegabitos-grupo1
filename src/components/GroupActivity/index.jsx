@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { StyleList, StyleListContainer, StyleCheckbox } from "./style";
+import { StyleList, StyleListContainer } from "./style";
 import { GroupsActivitiesContext } from "../../providers/GroupsActivities";
 import Checkbox from "../Checkbox";
 
@@ -28,4 +28,12 @@ export const ActivityList = () => {
         </ul>
     );
 
-}
+};
+
+export const ActiviryPopUp = () => {
+
+    const { createActivity } = useContext(GroupsActivitiesContext);
+
+    
+
+};

@@ -1,4 +1,3 @@
-import { ActivityList } from "../../components/GroupActivity";
 import Header from "../../components/Header";
 import { Container } from "./styles";
 import Goals from "../../components/Goals";
