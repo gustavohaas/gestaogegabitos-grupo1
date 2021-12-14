@@ -1,13 +1,15 @@
 import { toast } from "react-toastify";
 import { useState } from "react";
-import { createContext } from "react/cjs/react.development";
+import { createContext } from "react";
 import api from "../../services/api";
+import { HabitsContext, ProviderHabit } from "../Habits";
 
 export const DashboardContext = createContext();
 
 const DashboardProvider = ({ children }) => {
   const [habits, setHabits] = useState({});
   const token = JSON.parse(localStorage.getItem("@Habitactics:token"));
+
   const addHabit = (data) => {
     api
       .post("/habits/", data)
@@ -42,13 +44,15 @@ const DashboardProvider = ({ children }) => {
   };
 
   const addHowMuch = (habit) => {
+    console.log(habit);
     const { how_much_achieved, achieved } = habit;
     const data = {
       achieved: achieved,
       how_much_achieved: how_much_achieved + 1,
     };
+    console.log(data);
     api
-      .patch(`/habits/${habit.id}`, data, {
+      .patch(`habits/${habit.id}/`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -73,11 +77,24 @@ const DashboardProvider = ({ children }) => {
       .catch((_) => toast.error("Hábito não encontrado"));
   };
 
+  const searchHabit = () => {
+    api
+      .get(`habits/personal/`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((resp) => console.log(resp.data))
+      .catch((_) => toast.error("Hábito não encontrado"));
+  };
+
+  console.log(habits);
+
   return (
     <DashboardContext.Provider
       value={{
         habits,
-        addHabit,
+        searchHabit,
         deleteHabit,
         editHabit,
         addHowMuch,

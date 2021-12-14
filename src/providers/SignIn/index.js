@@ -14,18 +14,15 @@ const SignInProvider = ({ children }) => {
 
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("@Habitactics:token")) || [];
-    //setDecoded(jwt_decode(token));
-    
-    if (!token) {
-      return setIsAuth(false);
-    } else {
+
+    if (token) {
       return setIsAuth(true);
     }
   }, [isAuth]);
 
   const signIn = (data) => {
     api
-      .post("/sessions/", data)
+      .post("sessions/", data)
       .then((response) => {
         const { access } = response.data;
         localStorage.setItem(

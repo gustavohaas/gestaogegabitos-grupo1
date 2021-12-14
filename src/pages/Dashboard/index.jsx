@@ -29,23 +29,50 @@ const Dashboard = () => {
   return (
     <>
       <Container>
-        <Header />
-        <h2>
-          Olá, <br></br>usuário
-        </h2>
-        <div className="navContainer">
-          <BlackButton habitsButtonOn={true} className='habitsButton' onClick={() => handlePage("user")}>
-            <BsListTask size="1em" class="listIcon" />
-            Geral
-          </BlackButton>
-          <BlackButton className='progressButton' onClick={() => handlePage("groups")}>
-            <IoIosStats size="1em" class="statsIcon" />
-            Progresso
-          </BlackButton>
-        </div>
-        {page === "user" ? <HabitsList /> : <UserProgress />}
+        <header>
+          <p>Dashboard</p>
+          <IconButton>
+            <GoGear size="1.5em" />
+          </IconButton>
+        </header>
+        <h2>Seja bem-vindo(a), usuário</h2>
+        <nav>
+          <div>
+            <button className="day">Hoje</button>
+            <button className="ellipsis">…</button>
+          </div>
+          <IconButton className="search">
+            <GoSearch size="1.5em" />
+          </IconButton>
+        </nav>
+        <main>
+          <div className="tasks">
+            <Collapsible title="Categoria">
+              <p>Tarefa</p>
+            </Collapsible>
+            <div>
+              <MiniButton onClick={addHowMuch}>+</MiniButton>
+              <span> Hábito X</span>
+            </div>
 
-        <Menu personalColorScheme={true} />
+            <div>
+              <MiniButton onClick={searchHabit}>Pes</MiniButton>
+            </div>
+            <Button onClick={achieveHabit}>Hábito Alcançado</Button>
+            <Button onClick={deleteHabit}>Remover Hábito</Button>
+          </div>
+        </main>
+        <footer>
+          <IconButton>
+            <MdListAlt size="2em" />
+          </IconButton>
+          <Button>
+            <GoPlusSmall size="2em" />
+          </Button>
+          <IconButton>
+            <MdPeopleOutline size="2em" />
+          </IconButton>
+        </footer>
       </Container>
     </>
   );
