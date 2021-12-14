@@ -20,7 +20,7 @@ export const PopupDiv = styled.div`
   align-items: center;
   justify-content: flex-start;
   width: 300px;
-  height: 198px;
+  height: 150px;
 
   background: #0b0b0b;
   border: 1px solid #222222;
@@ -36,18 +36,41 @@ export const PopupDiv = styled.div`
     justify-content: space-between;
   }
 
+  div.search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 30px;
+
+    input {
+      border: 1px solid #222222;
+      padding: 5px;
+      width: 170px;
+      height: 35px;
+      border-radius: 10px;
+    }
+  }
+
   button.searchBtn {
-    width: 150px;
+    width: 100px;
     margin: 5px;
+    height: 35px;
   }
 
   button.greyBtn {
     color: grey;
     font-weight: 700;
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     border-radius: 4px;
     border: 1px solid #dcdcdc;
     text-align: center;
+
+    :hover {
+      background: red;
+      border: none;
+      color: white;
+    }
   }
 `;

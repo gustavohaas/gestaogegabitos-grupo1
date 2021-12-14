@@ -43,10 +43,16 @@ export const PopupDiv = styled.div`
   button.greyBtn {
     color: grey;
     font-weight: 700;
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     border-radius: 4px;
     border: 1px solid #dcdcdc;
     text-align: center;
+
+    :hover {
+      background: red;
+      border: none;
+      color: white;
+    }
   }
 `;

@@ -9,7 +9,7 @@ const PopUpConfigHabit = ({ setIsConfigVisible }) => {
 
   return (
     <>
-      <Container onClick={() => setIsConfigVisible(false)}>
+      <Container>
         <PopupDiv>
           <div>
             <button

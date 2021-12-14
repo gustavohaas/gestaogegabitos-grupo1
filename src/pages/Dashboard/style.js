@@ -96,17 +96,3 @@ export const IconButton = styled.button`
   border-style: none;
   color: var(--white);
 `;
-
-export const CardsContainer = styled.div`
-
-  border: 1px solid #222222;
-  border-radius: 10px;
-  min-width: 250px;
-  min-height: 300px;
-
-  display: flex;
-  flex-direction: column:
-  align-items: center;
-  justify-content: flex-start;
-
-`;
