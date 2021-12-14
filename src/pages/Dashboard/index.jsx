@@ -38,30 +38,6 @@ const Dashboard = () => {
         </div>
         <HabitsList />
         <Menu personalColorScheme={true} />
-        {/* <nav>
-          <div>
-            <button className="day">Hoje</button>
-            <button className="ellipsis">…</button>
-          </div>
-          <IconButton className="search">
-            <GoSearch size="1.5em" />
-          </IconButton>
-        </nav>
-        <main>
-          <div className="tasks">
-            <div>
-              <MiniButton onClick={addHowMuch}>+</MiniButton>
-              <span> Hábito X</span>
-            </div>
-
-            <div>
-              <MiniButton onClick={searchHabit}>Pes</MiniButton>
-            </div>
-            <MiniButton onClick={editHabit}>...</MiniButton>
-            <Button onClick={achieveHabit}>Hábito Alcançado</Button>
-            <Button onClick={deleteHabit}>Remover Hábito</Button>
-          </div>
-        </main> */}
       </Container>
     </>
   );
