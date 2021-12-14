@@ -5,9 +5,12 @@ import { ProviderHabit, HabitsContext } from "../../providers/Habits";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import Container from "./style";
+import { useContext } from "react";
+import { SignInContext } from "../../providers/SignIn";
 
 const Habits = () => {
   const { createHabit } = ProviderHabit(HabitsContext);
+  const { userId } = useContext(SignInContext);
 
   const schema = yup.object().shape({
     title: yup.string().max(50, "ver com pessoal a mendagem"),
@@ -30,7 +33,7 @@ const Habits = () => {
       frequency: data.frequency,
       achieved: false,
       how_much_achieved: 0,
-      user: 93,
+      user: `${userId}`,
     };
     createHabit(newHabit);
   };
@@ -59,7 +62,7 @@ const Habits = () => {
         <div>
           Escolha uma Categoria
           <select {...register("category")}>
-            <option value="category">Saude</option>
+            <option value="category">Saúde</option>
             <option value="category">Hobby</option>
             <option value="category">Estudo</option>
             <option value="category">Culinaria</option>
@@ -70,8 +73,8 @@ const Habits = () => {
           <select {...register("difficulty")}>
             <option value="difficulty">Fácil</option>
             <option value="difficulty">Média</option>
-            <option value="difficulty">Díficil</option>
-            <option value="difficulty">Muito Díficil</option>
+            <option value="difficulty">Difícil</option>
+            <option value="difficulty">Muito Difícil</option>
           </select>
         </div>
         <div>

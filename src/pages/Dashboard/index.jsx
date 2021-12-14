@@ -5,19 +5,22 @@ import Header from "../../components/Header";
 import Menu from "../../components/Menu";
 import Button from "../../components/Button";
 import MiniButton from "../../components/MiniButon";
-
 import { useContext } from "react";
 import { DashboardContext } from "../../providers/Dashboard";
+import { SignInContext } from "../../providers/SignIn";
+import { HabitCardContext } from "../../providers/HabitCard";
+import HabitCard from "../HabitCard";
 
 const Dashboard = () => {
-  const { deleteHabit, addHowMuch, searchHabit, achieveHabit, editHabit } =
-    useContext(DashboardContext);
+  const { deleteHabit, addHowMuch, searchHabit, achieveHabit, editHabit } = useContext(DashboardContext);
+  const { userName } = useContext(SignInContext);
+  const { habits, seekHabits } = useContext(HabitCardContext);
 
   return (
     <>
       <Container>
         <Header />
-        <h2>Seja bem-vindo(a), usuário</h2>
+        <h2>Seja bem-vindo(a), {userName}!</h2>
         <nav>
           <div>
             <button className="day">Hoje</button>
@@ -29,11 +32,13 @@ const Dashboard = () => {
         </nav>
         <main>
           <div className="tasks">
-            <div>
-              <MiniButton onClick={addHowMuch}>+</MiniButton>
-              <span> Hábito X</span>
-            </div>
-
+            {habits.length === 0 ? <button onClick={() => seekHabits()}>Carregar hábitos</button> : habits.map((habit) =>
+              <div>
+                <MiniButton onClick={addHowMuch}>+</MiniButton>
+                <span>&nbsp;Hábito: {habit.title}</span>
+                <HabitCard habit={habit} />
+              </div>
+            )}
             <div>
               <MiniButton onClick={searchHabit}>Pes</MiniButton>
             </div>
