@@ -22,12 +22,12 @@ const DashboardProvider = ({ children }) => {
 
   const deleteHabit = (habit) => {
     api
-      .delete(`/habits/${habit.id}`, {
+      .delete(`/habits/${habit.id}/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((resp) => console.log(resp))
+      .then((resp) => listHabits())
       .catch((_) => toast.error("Hábito não encontrado"));
   };
 
@@ -49,7 +49,7 @@ const DashboardProvider = ({ children }) => {
       how_much_achieved: how_much_achieved + 1,
     };
     api
-      .patch(`/habits/${habit.id}`, data, {
+      .patch(`/habits/${habit.id}/`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -65,12 +65,12 @@ const DashboardProvider = ({ children }) => {
       how_much_achieved: how_much_achieved,
     };
     api
-      .patch(`/habits/${habit.id}`, data, {
+      .patch(`/habits/${habit.id}/`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((resp) => console.log(resp))
+      .then((resp) => listHabits())
       .catch((_) => toast.error("Hábito não encontrado"));
   };
 
@@ -82,26 +82,23 @@ const DashboardProvider = ({ children }) => {
         },
       })
       .then((resp) => {
-        console.log(resp.data);
-        console.log(input);
-
         const test = resp.data.filter(
           (iten) => iten.title.includes(input) || iten.category === input
         );
-        console.log(test);
       })
       .catch((_) => toast.error("Hábito não encontrado"));
   };
 
   const listHabits = () => {
     api
-      .get(`habits/personal`, {
+      .get(`habits/personal/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
       .then((resp) => {
-        setList([...list, resp]);
+        console.log(resp.data);
+        setList(resp.data);
       })
       .catch((_) => toast.error("Hábito não encontrado"));
   };
@@ -120,7 +117,7 @@ const DashboardProvider = ({ children }) => {
         addHowMuch,
         achieveHabit,
         searchHabit,
-        listHabits,
+        list,
       }}
     >
       {children}

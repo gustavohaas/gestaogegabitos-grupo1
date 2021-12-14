@@ -3,10 +3,10 @@ import { useContext } from "react";
 import Button from "../Button";
 import { DashboardContext } from "../../providers/Dashboard";
 
-const PopUpConfigHabit = ({ setIsConfigVisible }) => {
-  //utilizar preventDefault
-  const { deleteHabit, achieveHabit, editHabit } = useContext(DashboardContext);
+const PopUpConfigHabit = ({ setIsConfigVisible, habit }) => {
+  const { deleteHabit, achieveHabit } = useContext(DashboardContext);
 
+  console.log(habit);
   return (
     <>
       <Container>
@@ -19,10 +19,10 @@ const PopUpConfigHabit = ({ setIsConfigVisible }) => {
               X
             </button>
           </div>
-          <Button className="configBtn" onClick={achieveHabit}>
+          <Button className="configBtn" onClick={() => achieveHabit(habit)}>
             Hábito Alcançado
           </Button>
-          <Button className="configBtn" onClick={deleteHabit}>
+          <Button className="configBtn" onClick={() => deleteHabit(habit)}>
             Remover Hábito
           </Button>
         </PopupDiv>

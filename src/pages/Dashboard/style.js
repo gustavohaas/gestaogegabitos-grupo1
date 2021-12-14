@@ -2,43 +2,28 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  header,
-  nav,
-  footer {
-    display: flex;
-    align-items: center;
-    width: -webkit-fill-available;
-  }
-  header {
-    justify-content: space-between;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 10px;
-    p {
-      width: 78px;
-      height: 19px;
-      left: 14px;
-      top: 15px;
-      font-family: Roboto;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 16px;
-      line-height: 19px;
-    }
-  }
+  flex-direction: column;
+
   h2 {
     position: absolute;
     height: 56px;
     left: 14px;
     top: 79px;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
+    font-weight: 300;
   }
-  nav {
+
+  .navContainer {
+    width: 320px;
+    display: flex;
+
+    button {
+      margin-right: 10px;
+    }
+    /* justify-content: space-between; */
+  }
+`;
+
+/* nav {
     justify-content: space-between;
     position: absolute;
     top: 181px;
@@ -88,11 +73,11 @@ export const Container = styled.div`
   button:hover {
     filter: brightness(1.5);
   }
-`;
+`; 
 
-export const IconButton = styled.button`
+/* export const IconButton = styled.button`
   background: var(--black);
   border-radius: 10px;
   border-style: none;
   color: var(--white);
-`;
+`; */

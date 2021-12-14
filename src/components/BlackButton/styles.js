@@ -9,8 +9,6 @@ export const Button = styled.button`
   padding: 6px;
   transition: 0.5s;
 
-
-
   .searchIcon {
     margin-right: 5px;
     transform: translateY(1px);
@@ -19,6 +17,11 @@ export const Button = styled.button`
   .statsIcon {
     margin-right: 5px;
     transform: translateY(1px);
+  }
+
+  .listIcon {
+    margin-right: 5px;
+    transform: translateY(3px);
   }
 
   :hover {
