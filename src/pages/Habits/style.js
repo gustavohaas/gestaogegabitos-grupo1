@@ -1,8 +1,12 @@
 import styled from "styled-components";
-const SelectInput = styled.div`
+
+const Container = styled.div`
   width: 100%auto;
+
   div {
     display: flex;
   }
 `;
-export default SelectInput;
+
+
+export default Container;

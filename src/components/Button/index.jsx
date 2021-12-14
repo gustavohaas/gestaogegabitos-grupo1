@@ -4,7 +4,7 @@ const Button = ({ children, onClick, ...rest }) => {
   return (
     <>
       <Btn onClick={onClick} {...rest}>
-        {children}{" "}
+        {children}
       </Btn>
     </>
   );

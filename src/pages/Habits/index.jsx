@@ -4,16 +4,15 @@ import { useForm } from "react-hook-form";
 import { ProviderHabit, HabitsContext } from "../../providers/Habits";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
-import Container from "./style";
+import Container from "./style.js";
 
 const Habits = () => {
   const { createHabit } = ProviderHabit(HabitsContext);
-
   const schema = yup.object().shape({
-    title: yup.string().max(50, "ver com pessoal a mendagem"),
-    frequency: yup.string().max(50, "ver com pessoal a mendagem"),
-    category: yup.string().max(50, "ver com pessoal a mendagem"),
-    difficulty: yup.string().max(50, "ver com pessoal a mendagem"),
+    title: yup.string().max(50, "ver com pessoal a mensagem"),
+    frequency: yup.string().max(50, "ver com pessoal a mensagem"),
+    category: yup.string().max(50, "ver com pessoal a mensagem"),
+    difficulty: yup.string().max(50, "ver com pessoal a mensagem"),
   });
 
   const {

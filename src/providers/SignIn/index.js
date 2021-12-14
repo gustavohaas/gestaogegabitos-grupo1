@@ -14,7 +14,6 @@ const SignInProvider = ({ children }) => {
 
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("@Habitactics:token")) || [];
-    //setDecoded(jwt_decode(token));
 
     if (!token) {
       return setIsAuth(false);
@@ -25,7 +24,7 @@ const SignInProvider = ({ children }) => {
 
   const signIn = (data) => {
     api
-      .post("/sessions/", data)
+      .post("sessions/", data)
       .then((response) => {
         const { access } = response.data;
         localStorage.setItem(
@@ -37,14 +36,11 @@ const SignInProvider = ({ children }) => {
       })
       .catch((error) => toast.error("Usuário ou senha inválidos"));
   };
-  // console.log(decoded);
 
   const { user_id } = decoded;
   useEffect(() => {
     setUserId(user_id);
   }, []);
-
-  // console.log(user_id);
 
   const toSignUp = () => {
     history.push("/signup");
