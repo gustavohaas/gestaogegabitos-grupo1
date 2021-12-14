@@ -1,27 +1,45 @@
 import Header from "../../components/Header";
 import { Container } from "./styles";
 import Menu from "../../components/Menu";
-import { useContext } from "react/cjs/react.development";
-import ProgressProvider from "../../providers/Progress/index";
+import { useProgress } from "../../providers/Progress/index";
+import { useEffect, useState } from "react";
 
 const Progress = () => {
-  const { hab } = useContext(ProgressProvider);
+  const { habits } = useProgress();
+  const [achieved, setAchieved] = useState([]);
+  useEffect(() => {
+    setAchieved(
+      JSON.parse(localStorage.getItem("@Habitactics:achieved")) || []
+    );
+  }, []);
 
   return (
     <>
       <Header />
       <Container>
-        <div>
-          <h2>Meu Progresso</h2>
-        </div>
-
         <section>
+          <div>
+            <h2>Meu Progresso</h2>
+          </div>
+
           <ul>
-            {hab.map((h) => (
+            {habits.map((h) => (
               <li>
                 `Você completou a atividade ${h.title} ${h.how_much_achieved}{" "}
                 vezes`
               </li>
+            ))}
+          </ul>
+        </section>
+
+        <section>
+          <div>
+            <h2>Hábitos Adquiridos</h2>
+          </div>
+
+          <ul>
+            {achieved.map((ach) => (
+              <li>`Você adquiriu o ${ach.title} como hábito para si`</li>
             ))}
           </ul>
         </section>
