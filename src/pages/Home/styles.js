@@ -19,6 +19,7 @@ export const Container = styled.div`
 
   button {
     font-weight: bold;
+    height: 40px;
   }
 
   button + button {

@@ -63,7 +63,7 @@ const SignUp = () => {
 
       <div className="BtnSignUp">
         <span> Já possui uma conta?</span>
-        <Link to="/signup">Clique aqui</Link>
+        <Link to="/login">Clique aqui</Link>
       </div>
     </Container>
   );
