@@ -1,3 +1,4 @@
+import { ActivityList } from "../../components/GroupActivity";
 import Header from "../../components/Header";
 import Menu from "../../components/Menu";
 
@@ -6,6 +7,9 @@ const Groups = () => {
     <>
       <Header />
       <Menu groupsColorScheme={true}/>
+      <div>
+        <ActivityList />
+      </div>
     </>
   );
 };
