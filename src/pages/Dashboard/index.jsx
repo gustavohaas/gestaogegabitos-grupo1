@@ -1,11 +1,14 @@
 import { Container, IconButton } from "./style";
 import { GoGear, GoPlusSmall, GoSearch } from "react-icons/go";
 import { MdListAlt, MdPeopleOutline } from "react-icons/md";
+import Header from "../../components/Header";
+import Menu from "../../components/Menu";
 import Button from "../../components/Button";
 import { useContext, useState } from "react";
 import MiniButton from "../../components/MiniButon";
 import { DashboardContext } from "../../providers/Dashboard";
 import PopUpConfigHabit from "../../components/PopUpConfigHabit";
+import PopUpSearchHabits from "../../components/PopUpSearchHabits";
 
 const Dashboard = () => {
   const { deleteHabit, addHowMuch, searchHabit, achieveHabit, editHabit } =
@@ -17,19 +20,17 @@ const Dashboard = () => {
   return (
     <>
       <Container>
-        <header>
-          <p>Dashboard</p>
-          <IconButton>
-            <GoGear size="1.5em" />
-          </IconButton>
-        </header>
+        <Header />
         <h2>Seja bem-vindo(a), usuário</h2>
         <nav>
           <div>
             <button className="day">Hoje</button>
             <button className="ellipsis">…</button>
           </div>
-          <IconButton className="search">
+          <IconButton
+            onClick={() => setIsSearchVisible(!isSearchVisible)}
+            className="search"
+          >
             <GoSearch size="1.5em" />
           </IconButton>
         </nav>
@@ -50,20 +51,13 @@ const Dashboard = () => {
             <Button onClick={deleteHabit}>Remover Hábito</Button>
           </div>
         </main>
-        <footer>
-          <IconButton>
-            <MdListAlt size="2em" />
-          </IconButton>
-          <Button>
-            <GoPlusSmall size="2em" />
-          </Button>
-          <IconButton>
-            <MdPeopleOutline size="2em" />
-          </IconButton>
-        </footer>
+        <Menu personalColorScheme={true} />
       </Container>
       {isConfigVisible && (
         <PopUpConfigHabit setIsConfigVisible={setIsConfigVisible} />
+      )}
+      {isSearchVisible && (
+        <PopUpSearchHabits setIsSearchVisible={setIsSearchVisible} />
       )}
     </>
   );

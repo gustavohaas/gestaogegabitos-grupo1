@@ -7,6 +7,7 @@ export const StyledMenu = styled.footer`
   bottom: 0;
   left: 0;
   position: fixed;
+
   button {
     display: flex;
     align-items: center;
@@ -17,9 +18,23 @@ export const StyledMenu = styled.footer`
   }
 `;
 
-export const IconButton = styled.button`
+export const PersonalButton = styled.button`
   background: var(--black);
   border-radius: 10px;
   border-style: none;
-  color: var(--white);
+  color: ${(props) => (props.personalColorScheme ? "#5c5ae5" : "#ffffff")};
+  /* transition: 0.5s;
+  :hover {
+    color: var(--purple-blue);
+  } */
+`;
+
+export const GroupsButton = styled.button`
+  background: var(--black);
+  border-radius: 10px;
+  border-style: none;
+  color: ${(props) => (props.groupsColorScheme ? "#5c5ae5" : "#ffffff")};
+  /* :hover {
+    color: var(--purple-blue);
+  } */
 `;
