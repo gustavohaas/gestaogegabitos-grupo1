@@ -7,11 +7,8 @@ const Header = () => {
   const history = useHistory();
 
   const navigateToEditProfile = () => {
-    console.log("oi");
     history.push("/profile");
   };
-
-  console.log("olá");
 
   return (
     <StyledHeader>
