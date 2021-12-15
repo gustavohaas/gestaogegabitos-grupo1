@@ -1,42 +1,17 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { StyleList, StyleListContainer } from "./style";
+import { StyleList, StyleListContainer, HabitBtn } from "./style";
 import { GroupsActivitiesContext } from "../../providers/GroupsActivities";
 import Checkbox from "../Checkbox";
 import Input from "../Input";
 import Button from "../Button";
+import GroupActivityPopUp from "../GroupActivityPopUp";
 
+export const ActiviryCreatePopUp = () => {
 
-export const ActivityList = () => {
-
-    const { activitiesList, searchActivities } = useContext(GroupsActivitiesContext);
-
-    useEffect(() => {
-        searchActivities(422);
-    },"")
-
-    return (
-        <ul>
-            {activitiesList?.map((item, index) => {
-                return (
-                    <StyleListContainer>
-                        <Checkbox />
-                        <StyleList key={index}>
-                            {item.title}
-                        </StyleList>
-                    </StyleListContainer>
-                    
-                );
-            })}
-        </ul>
-    );
-
-};
-
-export const ActiviryCreatePopUp = (groupID) => {
-
+    const groupID = JSON.parse(localStorage.getItem("@Habitactics:groupID"));
     const { createActivity } = useContext(GroupsActivitiesContext);
 
     const activitySchema = yup.object().shape({
@@ -47,7 +22,7 @@ export const ActiviryCreatePopUp = (groupID) => {
 
     const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(activitySchema) });
 
-    const handleActivity = (data, groupID = 422) => {
+    const handleActivity = (data) => {
         const time = data.realization_time_date + 'T' + data.realization_time + 'Z';
 
         const newData = {"title": data.title, 'realization_time': time, 'group': groupID}
@@ -98,3 +73,39 @@ export const ActivityUpdatePopUp= (activityID) => {
         </form>
     )
 }
+
+export const ActivityList = () => {
+
+    const { activitiesList, searchActivities } = useContext(GroupsActivitiesContext);
+
+    const [visibility, setVisibility] = useState(false);
+
+    const popupCloseHandler = (e) => {
+        setVisibility(e);
+    }
+
+    useEffect(() => {
+        searchActivities(422);
+    },"")
+
+    return (
+        <ul>
+            {activitiesList?.map((item, index) => {
+                return (
+                    <StyleListContainer>
+                        <Checkbox />
+                        <StyleList key={index}>
+                            {item.title}
+                            <HabitBtn onClick={(e) => setVisibility(!visibility)}>…</HabitBtn>
+                            <GroupActivityPopUp onClose={popupCloseHandler} show={visibility} title={`Atividade`}>
+                                <ActivityUpdatePopUp activityID={item.id}/>
+                            </GroupActivityPopUp>
+                        </StyleList>
+                    </StyleListContainer>
+                    
+                );
+            })}
+        </ul>
+    );
+
+};
