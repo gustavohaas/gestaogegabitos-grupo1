@@ -107,10 +107,6 @@ const DashboardProvider = ({ children }) => {
       .catch((_) => toast.error("Hábito não encontrado"));
   };
 
-  useEffect(() => {
-    listHabits();
-  }, []);
-
   return (
     <DashboardContext.Provider
       value={{
@@ -120,6 +116,7 @@ const DashboardProvider = ({ children }) => {
         editHabit,
         addHowMuch,
         achieveHabit,
+        listHabits,
         list,
       }}
     >

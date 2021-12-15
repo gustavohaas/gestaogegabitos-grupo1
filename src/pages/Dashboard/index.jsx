@@ -15,10 +15,11 @@ import { BsListTask } from "react-icons/bs";
 import { IoIosStats } from "react-icons/io";
 
 import { DashboardContext } from "../../providers/Dashboard";
+import { useEffect } from "react";
 // import PopUpConfigHabit from "../../components/PopUpConfigHabit";
 
 const Dashboard = () => {
-  const { deleteHabit, addHowMuch, searchHabit, achieveHabit, editHabit } =
+  const { deleteHabit, addHowMuch, searchHabit, achieveHabit, editHabit, listHabits, list } =
     useContext(DashboardContext);
 
   const [isConfigVisible, setIsConfigVisible] = useState(false);
@@ -27,6 +28,10 @@ const Dashboard = () => {
   const handlePage = (page) => {
     setPage(page);
   };
+
+  useEffect(() => {
+    listHabits();
+  }, []);
 
   return (
     <>
