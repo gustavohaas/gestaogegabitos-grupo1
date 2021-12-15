@@ -26,10 +26,14 @@ const SignInProvider = ({ children }) => {
     api
       .post("sessions/", data)
       .then((response) => {
-        const { access } = response.data;
+        const { access, username } = response.data;
         localStorage.setItem(
           "@Habitactics:token",
           JSON.stringify(access) || []
+        );
+        localStorage.setItem(
+          "@Habitactics:username",
+          JSON.stringify(data.username) || []
         );
         history.push("/dashboard");
         toast.success(`Seja bem vindo ${data.username}`);

@@ -120,7 +120,6 @@ const DashboardProvider = ({ children }) => {
         editHabit,
         addHowMuch,
         achieveHabit,
-        searchHabit,
         list,
       }}
     >
