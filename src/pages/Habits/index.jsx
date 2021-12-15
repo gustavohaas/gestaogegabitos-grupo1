@@ -1,13 +1,18 @@
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { ProviderHabit, HabitsContext } from "../../providers/Habits";
+import { HabitProvider, HabitsContext } from "../../providers/Habits";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import Container from "./style.js";
+import { useContext } from "react";
+import { DashboardContext } from "../../providers/Dashboard";
+import { SignInContext } from "../../providers/SignIn";
 
 const Habits = () => {
-  const { createHabit } = ProviderHabit(HabitsContext);
+  const { addHabit } = useContext(DashboardContext);
+  const { userId } = useContext(SignInContext);
+
   const schema = yup.object().shape({
     title: yup.string().max(50, "ver com pessoal a mensagem"),
     frequency: yup.string().max(50, "ver com pessoal a mensagem"),
@@ -22,16 +27,14 @@ const Habits = () => {
   } = useForm({ resolver: yupResolver(schema) });
 
   const handleAddHabit = (data) => {
+    console.log(userId);
     const newHabit = {
-      title: data.title,
-      category: data.category,
-      difficulty: data.difficulty,
-      frequency: data.frequency,
+      ...data,
       achieved: false,
       how_much_achieved: 0,
-      user: 93,
+      user: userId, // Aqui estamos passando um user fixo, precisamos passar o id do usuário logado. Usar biblioteca jwt-decoded
     };
-    createHabit(newHabit);
+    addHabit(newHabit);
   };
   const handleCancel = () => {
     //Somente fecha o popup

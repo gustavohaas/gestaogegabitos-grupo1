@@ -8,6 +8,7 @@ import { DashboardContext } from "../../providers/Dashboard";
 const Progress = () => {
   const { achievedHabits } = useProgress();
   const { list } = useContext(DashboardContext);
+
   useEffect(() => {
     achievedHabits(list);
   }, []);
@@ -38,8 +39,8 @@ const Progress = () => {
           </div>
 
           <ul>
-            {achieved.map((ach) => (
-              <li>Você adquiriu {ach.title} como um hábito para si</li>
+            {achieved.map((ac) => (
+              <li>Você adquiriu {ac.title} como um hábito para si</li>
             ))}
           </ul>
         </section>

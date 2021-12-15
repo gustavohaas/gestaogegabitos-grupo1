@@ -7,8 +7,10 @@ export const Container = styled.div`
   margin-top: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  overflow: auto;
+  height: 360px;
 
   svg {
     margin-right: 10px;
