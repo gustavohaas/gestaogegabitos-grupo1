@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 95%;
-  height: 40px;
+  min-height: 40px;
   margin-top: 10px;
   background: var(--popup-color);
   border: 2px solid var(--darkgrey);
