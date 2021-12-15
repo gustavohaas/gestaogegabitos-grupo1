@@ -5,7 +5,7 @@ export const HabitsContext = createContext();
 
 export const HabitProvider = ({ children }) => {
   const [habit, setHabit] = useState([]);
-  
+
   const token = JSON.parse(localStorage.getItem("@Habitactics:token")) || [];
 
   const createHabit = (data) => {
@@ -36,4 +36,4 @@ export const HabitProvider = ({ children }) => {
   );
 };
 
-export const ProviderHabit = () => useContext(HabitsContext);
+export default HabitProvider;

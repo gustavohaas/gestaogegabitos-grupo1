@@ -12,10 +12,16 @@ const DashboardProvider = ({ children }) => {
   const token = JSON.parse(localStorage.getItem("@Habitactics:token"));
 
   const addHabit = (data) => {
+    console.log(data);
+    console.log(token);
     api
-      .post("/habits/", data)
+      .post("/habits/", data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((resp) => {
-        setHabits([...habits, resp]);
+        setList([...list, resp]);
         console.log(resp);
         toast.success("Hábito cadastrado com sucesso");
       })
@@ -111,6 +117,7 @@ const DashboardProvider = ({ children }) => {
     <DashboardContext.Provider
       value={{
         habits,
+        addHabit,
         searchHabit,
         deleteHabit,
         editHabit,
