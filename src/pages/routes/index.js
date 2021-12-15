@@ -5,6 +5,7 @@ import Groups from "../Groups";
 import SignIn from "../SignIn";
 import SignUp from "../SignUp";
 import EditProfile from "../EditProfile";
+import Progress from "../Progress";
 import Habits from "../Habits";
 
 function Routes() {
@@ -29,7 +30,10 @@ function Routes() {
         <Route path="/profile">
           <EditProfile />
         </Route>
-        <Route exact path="/habits">
+        <Route path="/progress">
+          <Progress />
+        </Route>
+        <Route path="/habits">
           <Habits />
         </Route>
       </Switch>

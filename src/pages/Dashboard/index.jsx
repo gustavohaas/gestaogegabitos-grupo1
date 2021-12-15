@@ -1,6 +1,7 @@
 import Header from "../../components/Header";
 import BlackButton from "../../components/BlackButton";
 import HabitsList from "../../components/HabitsList";
+import UserProgress from "../../components/UserProgress";
 import { Container, IconButton } from "./style";
 import Menu from "../../components/Menu";
 import Button from "../../components/Button";
@@ -21,13 +22,18 @@ const Dashboard = () => {
     useContext(DashboardContext);
 
   const [isConfigVisible, setIsConfigVisible] = useState(false);
+  const [page, setPage] = useState("user");
+
+  const handlePage = (page) => {
+    setPage(page);
+  };
 
   return (
     <>
       <Container>
         <Header />
         <h2>
-          Olá,teste <br></br>usuário
+          Olá, <br></br>usuário
         </h2>
         <div className="navContainer">
           <BlackButton>
