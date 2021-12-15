@@ -42,13 +42,15 @@ export const ActiviryPopUp = () => {
     const activitySchema = yup.object().shape({
         title: yup.string().required("Campo obrigatório"),
         realization_time_date: yup.date().min(new Date()).required("Campo obrigatório"),
-        realization_time: yup.
+        realization_time: yup.string().máx(5,"Formato de horário inválido").min(5,"Formato de horário inválido").required("Campo obrigatório")
     })
 
     const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(activitySchema) });
 
     const handleActivity = (data, groupID = 422) => {
-        const time = realization_time_date
+        const time = data.realization_time_date + 'T' + data.realization_time + 'Z';
+
+        const newData = {"title": data.title, 'realization_time': time, 'group': groupID}
         
         createActivity(data)
     }
