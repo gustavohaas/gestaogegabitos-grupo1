@@ -2,17 +2,17 @@ import Header from "../../components/Header";
 import { Container } from "./styles";
 import Menu from "../../components/Menu";
 import { useProgress } from "../../providers/Progress/index";
-import { useEffect, useState } from "react";
+import { useEffect, useContext } from "react";
+import { DashboardContext } from "../../providers/Dashboard";
 
 const Progress = () => {
-  const { habits } = useProgress();
-  const [achieved, setAchieved] = useState([]);
+  const { achievedHabits } = useProgress();
+  const { list } = useContext(DashboardContext);
   useEffect(() => {
-    setAchieved(
-      JSON.parse(localStorage.getItem("@Habitactics:achieved")) || []
-    );
+    achievedHabits(list);
   }, []);
-
+  const achieved =
+    JSON.parse(localStorage.getItem("@Habitactics:achieved")) || [];
   return (
     <>
       <Header />
@@ -23,7 +23,7 @@ const Progress = () => {
           </div>
 
           <ul>
-            {habits.map((h) => (
+            {list.map((h) => (
               <li>
                 Você completou a atividade {h.title} {h.how_much_achieved}{" "}
                 vezes.
