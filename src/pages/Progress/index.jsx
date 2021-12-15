@@ -5,8 +5,14 @@ import { useProgress } from "../../providers/Progress/index";
 import { useEffect, useState } from "react";
 
 const Progress = () => {
-  const { habits } = useProgress();
+  const { habits, achievedHabits } = useProgress();
   const [achieved, setAchieved] = useState([]);
+  useEffect(() => {
+    setAchieved(
+      JSON.parse(localStorage.getItem("@Habitactics:achieved")) || []
+    );
+  }, []);
+
   useEffect(() => {
     setAchieved(
       JSON.parse(localStorage.getItem("@Habitactics:achieved")) || []

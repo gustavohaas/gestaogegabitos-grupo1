@@ -1,10 +1,8 @@
-import { useState } from "react";
-
 import Header from "../../components/Header";
 import BlackButton from "../../components/BlackButton";
 import HabitsList from "../../components/HabitsList";
 import UserProgress from "../../components/UserProgress";
-import { Container } from "./style";
+import { Container, IconButton } from "./style";
 import Menu from "../../components/Menu";
 import Button from "../../components/Button";
 import { useContext, useState } from "react";
@@ -24,7 +22,7 @@ const Dashboard = () => {
     useContext(DashboardContext);
 
   const [isConfigVisible, setIsConfigVisible] = useState(false);
-  const [page, setPage] = useState('user');
+  const [page, setPage] = useState("user");
 
   const handlePage = (page) => {
     setPage(page);
@@ -39,7 +37,7 @@ const Dashboard = () => {
             <GoGear size="1.5em" />
           </IconButton>
         </header>
-        <h2>Seja bem-vindo(a), usuário</h2>
+        <h2>Olá {JSON.parse(localStorage.getItem("@Habitactics:username"))}</h2>
         <nav>
           <div>
             <button className="day">Hoje</button>
@@ -51,9 +49,6 @@ const Dashboard = () => {
         </nav>
         <main>
           <div className="tasks">
-            <Collapsible title="Categoria">
-              <p>Tarefa</p>
-            </Collapsible>
             <div>
               <MiniButton onClick={addHowMuch}>+</MiniButton>
               <span> Hábito X</span>
