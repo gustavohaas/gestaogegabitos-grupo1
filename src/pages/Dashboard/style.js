@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  header,
+  flex-direction: column;
+  /* header,
   nav,
   footer {
     display: flex;
@@ -26,7 +27,7 @@ export const Container = styled.div`
       font-size: 16px;
       line-height: 19px;
     }
-  }
+  } */
 
   h2 {
     position: absolute;
@@ -38,8 +39,9 @@ export const Container = styled.div`
     font-weight: normal;
     font-size: 24px;
     line-height: 28px;
+    font-weight: 300;
   }
-  nav {
+  /* nav {
     justify-content: space-between;
     position: absolute;
     top: 181px;
@@ -85,16 +87,20 @@ export const Container = styled.div`
       width: 48px;
       height: 48px;
     }
+  } */
+
+  button {
+    margin-right: 10px;
   }
+
   button:hover {
     filter: brightness(1.5);
   }
 `;
 
-export const IconButton = styled.button`
-  background: var(--black);
-  border-radius: 10px;
-  border-style: none;
-  color: var(--white);
-`;
-
+// export const IconButton = styled.button`
+//   background: var(--black);
+//   border-radius: 10px;
+//   border-style: none;
+//   color: var(--white);
+// `;
