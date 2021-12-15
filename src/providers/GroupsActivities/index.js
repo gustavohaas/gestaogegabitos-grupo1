@@ -40,9 +40,9 @@ const GroupsActivitiesProvider = ({ children }) => {
             })
     };
 
-    const updateActivity = (activityID) => {
+    const updateActivity = (data, activityID) => {
         api
-            .patch(`/activities/${activityID}/`, {
+            .patch(`/activities/${activityID}/`, data, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

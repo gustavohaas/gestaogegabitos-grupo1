@@ -35,7 +35,7 @@ export const ActivityList = () => {
 
 };
 
-export const ActiviryPopUp = () => {
+export const ActiviryCreatePopUp = (groupID) => {
 
     const { createActivity } = useContext(GroupsActivitiesContext);
 
@@ -52,11 +52,11 @@ export const ActiviryPopUp = () => {
 
         const newData = {"title": data.title, 'realization_time': time, 'group': groupID}
         
-        createActivity(data)
+        createActivity(newData)
     }
 
     return(
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(handleActivity)}>
             <label for='title' >
                 Título <span>{errors.title?.message}</span>
             </label>
@@ -72,5 +72,29 @@ export const ActiviryPopUp = () => {
             <Button type="submit">Cadastrar</Button>
         </form>
     );
-
 };
+
+export const ActivityUpdatePopUp= (activityID) => {
+    
+    const { updateActivity } = useContext(GroupsActivitiesContext);
+
+    const activitySchema = yup.object().shape({
+        title: yup.string().required("Campo obrigatório")
+    })
+
+    const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(activitySchema) });
+
+    const handleActivity = (data, activityID) => {
+        updateActivity(data, activityID)
+    }
+
+    return(
+        <form onSubmit={handleSubmit(handleActivity)}>
+            <label for='title' >
+                Título <span>{errors.title?.message}</span>
+            </label>
+            <Input name='title' register={register} />
+            <Button type="submit">Atualizar</Button>
+        </form>
+    )
+}
