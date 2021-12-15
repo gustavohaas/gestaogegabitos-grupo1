@@ -25,8 +25,8 @@ const Progress = () => {
           <ul>
             {habits.map((h) => (
               <li>
-                `Você completou a atividade ${h.title} ${h.how_much_achieved}{" "}
-                vezes`
+                Você completou a atividade {h.title} {h.how_much_achieved}{" "}
+                vezes.
               </li>
             ))}
           </ul>
@@ -39,7 +39,7 @@ const Progress = () => {
 
           <ul>
             {achieved.map((ach) => (
-              <li>`Você adquiriu o ${ach.title} como hábito para si`</li>
+              <li>Você adquiriu {ach.title} como um hábito para si</li>
             ))}
           </ul>
         </section>
