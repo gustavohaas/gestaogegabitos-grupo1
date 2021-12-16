@@ -9,7 +9,9 @@ export const Header = styled.header`
 
 export const LogoTitle = styled.h1`
   color: var(--white);
-  font-family: "Hurricane";
+  font-family: 'Hurricane', cursive;
+  font-size: 42px;
+  margin-bottom: 2rem;
 `;
 
 export const LogoImage = styled.img`
