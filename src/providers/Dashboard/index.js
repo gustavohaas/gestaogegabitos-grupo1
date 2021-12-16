@@ -92,9 +92,12 @@ const DashboardProvider = ({ children }) => {
         },
       })
       .then((resp) => {
-        const test = resp.data.filter(
-          (iten) => iten.title.includes(input) || iten.category === input
+        const searchList = resp.data.filter(
+          (iten) =>
+            iten.title.includes(input) ||
+            iten.category.toLowerCase() === input.toLowerCase()
         );
+        setList(searchList);
       })
       .catch((_) => toast.error("Hábito não encontrado"));
   };
