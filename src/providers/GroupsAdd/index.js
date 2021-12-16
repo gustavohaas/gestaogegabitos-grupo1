@@ -5,8 +5,31 @@ import { toast } from "react-toastify";
 export const GroupsAddContext = createContext();
 
 export const GroupsAddProvider = ({ children }) => {
-  const [actualGroup, setActualGroup] = useState({});
   const token = JSON.parse(localStorage.getItem("@Habitactics:token"));
+
+  const [actualGroup, setActualGroup] = useState({});
+  const [groupList, setGroupList] = useState([]);
+  const [filteredGroupList, setFilteredGroupList] = useState([]);
+
+  const groupSearch = (input) => {
+    api
+      .get("/groups/", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        console.log(response.data.results);
+        setGroupList(response.data.results);
+        const list = groupList.filter(
+          (item) =>
+            item.name.includes(input) || item.description.includes(input)
+        );
+        setFilteredGroupList(list);
+        console.log(filteredGroupList);
+      })
+      .catch((err) => console.log(err));
+  };
 
   const createGroup = (data) => {
     api
@@ -71,6 +94,10 @@ export const GroupsAddProvider = ({ children }) => {
       value={{
         createGroup,
         actualGroup,
+        groupSearch,
+        subscribeOnGroup,
+        leaveGroup,
+        groupList,
       }}
     >
       {children}
