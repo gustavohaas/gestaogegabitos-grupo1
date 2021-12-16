@@ -44,7 +44,7 @@ const EditProfile = () => {
   const history = useHistory();
 
   const userLogout = () => {
-    localStorage.removeItem("@Habitactics:token");
+    localStorage.clear();
     history.push("/");
     toast.success("Usuário deslogado com sucesso!");
   };
