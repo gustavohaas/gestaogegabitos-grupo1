@@ -2,40 +2,41 @@ import Header from "../../components/Header";
 import { Container } from "./styles";
 import Menu from "../../components/Menu";
 import { useProgress } from "../../providers/Progress/index";
-import { useEffect, useState } from "react";
+import { useEffect, useContext } from "react";
+import { DashboardContext } from "../../providers/Dashboard";
+import ProgressCard from "../../components/ProgressCard";
 
 const Progress = () => {
-  const { habits, achievedHabits } = useProgress();
-  const [achieved, setAchieved] = useState([]);
-  useEffect(() => {
-    setAchieved(
-      JSON.parse(localStorage.getItem("@Habitactics:achieved")) || []
-    );
-  }, []);
+  const { achievedHabits } = useProgress();
+  const { list, listHabits } = useContext(DashboardContext);
 
   useEffect(() => {
-    setAchieved(
-      JSON.parse(localStorage.getItem("@Habitactics:achieved")) || []
-    );
+    listHabits();
   }, []);
-
+  useEffect(() => {
+    achievedHabits(list);
+  }, [list]);
+  const achieved =
+    JSON.parse(localStorage.getItem("@Habitactics:achieved")) || [];
   return (
     <>
       <Header />
       <Container>
+        {console.log(list)}
         <section>
           <div>
             <h2>Meu Progresso</h2>
           </div>
 
-          <ul>
-            {habits.map((h) => (
-              <li>
-                `Você completou a atividade ${h.title} ${h.how_much_achieved}{" "}
-                vezes`
-              </li>
+          <div>
+            {list.map((l) => (
+              <ProgressCard>
+                {console.log(l)}
+                Você completou a atividade {l.title} {l.how_much_achieved}{" "}
+                vezes.
+              </ProgressCard>
             ))}
-          </ul>
+          </div>
         </section>
 
         <section>
@@ -44,8 +45,10 @@ const Progress = () => {
           </div>
 
           <ul>
-            {achieved.map((ach) => (
-              <li>`Você adquiriu o ${ach.title} como hábito para si`</li>
+            {achieved.map((ac) => (
+              <ProgressCard>
+                Você adquiriu {ac.title} como um hábito para si
+              </ProgressCard>
             ))}
           </ul>
         </section>

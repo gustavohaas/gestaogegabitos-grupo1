@@ -11,6 +11,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10px;
 `;
 
 export const InputStyled = styled.input`

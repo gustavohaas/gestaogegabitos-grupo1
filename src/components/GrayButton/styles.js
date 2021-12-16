@@ -9,9 +9,10 @@ export const Button = styled.button`
   width: 343px;
   height: 48px;
   cursor: pointer;
-  font-weight: bold;
+  /* font-weight: bold; */
+  transition: 0.5s;
 
   :hover {
-    filter: brightness(1.2s);
+    filter: brightness(1.2);
   }
 `;
