@@ -17,6 +17,12 @@ export const Container = styled.div`
 export const InputStyled = styled.input`
   width: 85%;
   border: none;
-  color: var(--white);
   background-color: var(--popup-color);
+  color: var(--white);
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px var(--popup-color) inset;
+  }
+  &:-webkit-autofill {
+    -webkit-text-fill-color: var(--white) !important;
+  }
 `;
