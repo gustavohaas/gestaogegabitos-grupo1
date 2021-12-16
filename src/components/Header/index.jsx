@@ -12,13 +12,15 @@ const Header = ({ colorScheme = false }) => {
 
   return (
     <StyledHeader>
-      <h3>Dashboard</h3>
-      <EditProfileButton
-        colorScheme={colorScheme}
-        onClick={navigateToEditProfile}
-      >
-        <GoGear size="1.5em" />
-      </EditProfileButton>
+      <div>
+        <h3>Dashboard</h3>
+        <EditProfileButton
+          colorScheme={colorScheme}
+          onClick={navigateToEditProfile}
+        >
+          <GoGear size="1.5em" />
+        </EditProfileButton>
+      </div>
     </StyledHeader>
   );
 };

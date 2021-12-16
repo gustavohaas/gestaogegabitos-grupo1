@@ -1,12 +1,11 @@
 import { Container, PopupDiv } from "./style";
 import { useContext } from "react";
 import Button from "../Button";
-import { DashboardContext } from "../../providers/Dashboard";
+import { GoalsContext } from "../../providers/Goals";
 
-const PopUpConfigHabit = ({ setIsConfigVisible, habit }) => {
-  const { deleteHabit, achieveHabit } = useContext(DashboardContext);
+const PopUpConfigGoals = ({ setIsConfigVisible, goal }) => {
+  const { deleteGoal, achieveGoal } = useContext(GoalsContext);
 
-  console.log(habit);
   return (
     <>
       <Container>
@@ -16,14 +15,14 @@ const PopUpConfigHabit = ({ setIsConfigVisible, habit }) => {
               className="greyBtn"
               onClick={() => setIsConfigVisible(false)}
             >
-              X
+              x
             </button>
           </div>
-          <Button className="configBtn" onClick={() => achieveHabit(habit)}>
-            Hábito Alcançado
+          <Button className="configBtn" onClick={() => achieveGoal(goal)}>
+            Meta Alcançada
           </Button>
-          <Button className="configBtn" onClick={() => deleteHabit(habit)}>
-            Remover Hábito
+          <Button className="configBtn" onClick={() => deleteGoal(goal)}>
+            Remover Meta
           </Button>
         </PopupDiv>
       </Container>
@@ -31,4 +30,4 @@ const PopUpConfigHabit = ({ setIsConfigVisible, habit }) => {
   );
 };
 
-export default PopUpConfigHabit;
+export default PopUpConfigGoals;

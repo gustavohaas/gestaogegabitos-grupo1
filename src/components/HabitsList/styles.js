@@ -48,7 +48,7 @@ export const Container = styled.div`
   /* justify-content: center; */
   align-items: center;
   overflow: auto;
-  height: 380px;
+  height: 300px;
   padding-top: 10px;
   padding-bottom: 10px;
 

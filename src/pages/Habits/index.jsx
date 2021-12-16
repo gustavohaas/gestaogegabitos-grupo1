@@ -44,13 +44,9 @@ const Habits = ({ popupCloseHandler, visibility }) => {
   };
 
   return (
-    <CustomPopup
-      onClose={popupCloseHandler}
-      show={visibility}
-      title={""}
-    >
+    <CustomPopup onClose={popupCloseHandler} show={visibility} title={""}>
       <Container>
-        <h1>Criar Hábito</h1>
+        <h1>Cadastrar hábito</h1>
         <form onSubmit={handleSubmit(handleAddHabit)}>
           <Input
             label="Título"
@@ -61,7 +57,7 @@ const Habits = ({ popupCloseHandler, visibility }) => {
             placeholder="Título"
           />
           <div>
-            Escolha uma Frequência:&nbsp;
+            <span>Frequência:</span>
             <select name="frequency" {...register("frequency")}>
               <option value="Diária">Diária</option>
               <option value="Semanal">Semanal</option>
@@ -69,16 +65,16 @@ const Habits = ({ popupCloseHandler, visibility }) => {
             </select>
           </div>
           <div>
-            Escolha uma Categoria:&nbsp;
+            <span>Categoria:</span>
             <select name="category" {...register("category")}>
               <option value="Saúde">Saúde</option>
               <option value="Hobby">Hobby</option>
-              <option value="Estudo">Estudo</option>
-              <option value="Culinária">Culinária</option>
+              <option value="Estudo">Estudos</option>
+              <option value="Culinária">Outros</option>
             </select>
           </div>
           <div>
-            Qual a dificuldade?&nbsp;
+            <span>Dificuldade:</span>
             <select name="difficulty" {...register("difficulty")}>
               <option value="Fácil">Fácil</option>
               <option value="Média">Média</option>
@@ -88,9 +84,10 @@ const Habits = ({ popupCloseHandler, visibility }) => {
           </div>
           <div>
             <Button type="submit">Adicionar</Button>
+            
           </div>
         </form>
-        <Button onClick={handleCancel}>Cancelar</Button>
+        <Button className="cancelButton" onClick={handleCancel}>Fechar</Button>
       </Container>
     </CustomPopup>
   );
