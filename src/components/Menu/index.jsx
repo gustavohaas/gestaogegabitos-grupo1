@@ -24,21 +24,23 @@ const Menu = ({ personalColorScheme = false, groupsColorScheme = false }) => {
     <>
       <Habits popupCloseHandler={popupCloseHandler} visibility={visibility} />
       <StyledMenu>
-        <PersonalButton
-          personalColorScheme={personalColorScheme}
-          onClick={() => navigateToDashboard("/dashboard")}
-        >
-          <BsPerson size="1.6em" />
-        </PersonalButton>
-        <Button onClick={(e) => setVisibility(!visibility)}>
-          <GoPlusSmall size="2.5em" />
-        </Button>
-        <GroupsButton
-          groupsColorScheme={groupsColorScheme}
-          onClick={() => navigateToDashboard("/groups")}
-        >
-          <MdPeopleOutline size="2em" />
-        </GroupsButton>
+        <div>
+          <PersonalButton
+            personalColorScheme={personalColorScheme}
+            onClick={() => navigateToDashboard("/dashboard")}
+          >
+            <BsPerson size="1.6em" />
+          </PersonalButton>
+          <Button onClick={(e) => setVisibility(!visibility)}>
+            <GoPlusSmall size="2.5em" />
+          </Button>
+          <GroupsButton
+            groupsColorScheme={groupsColorScheme}
+            onClick={() => navigateToDashboard("/groups")}
+          >
+            <MdPeopleOutline size="2em" />
+          </GroupsButton>
+        </div>
       </StyledMenu>
     </>
   );
