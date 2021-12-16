@@ -1,8 +1,6 @@
-import { useEffect } from "react";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { GroupsAddContext } from "../../providers/GroupsAdd";
-import { ActivityList } from "../GroupActivity";
-import MiniButton from "../MiniButon";
+import { GroupListPopUp } from "../GroupListPopUp/index";
 import { Card, Container } from "./style"
 
 
@@ -10,21 +8,25 @@ const GroupCardList = () => {
 
     const { subscribedGroups } = useContext(GroupsAddContext);
 
-    console.log(subscribedGroups)
+    const [isConfigVisible, setIsConfigVisible] = useState(false);
 
     return (
         <>
             <Container>
                 {subscribedGroups.map((item, index) => {
                     return (
-                        <Card key={index}>
-                            <h4>{item.name}</h4>
-
-                            <ActivityList groupID={item.id} />
-                        </Card>
+                            <Card key={index} onClick={() => setIsConfigVisible(!isConfigVisible)}>
+                                <h4>{item.name}</h4>
+                            </Card>
                     )
                 })}
             </Container>
+            {isConfigVisible && (
+                <GroupListPopUp
+                setIsConfigVisible={setIsConfigVisible}
+
+                />
+            )}
         </>
 
     )
