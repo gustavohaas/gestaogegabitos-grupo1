@@ -9,10 +9,19 @@ import { IoIosStats } from "react-icons/io";
 import { useState } from "react";
 import { GroupSearchPopUp } from "../../components/GroupSearch";
 import GroupsMenu from "../../components/GroupsMenu";
+import { useEffect } from "react";
+import { useContext } from "react";
+import { GroupsAddContext } from "../../providers/GroupsAdd";
 
 const Groups = () => {
 
   const [isConfigVisible, setIsConfigVisible] = useState(false);
+
+  const { myGroups } = useContext(GroupsAddContext);
+
+  useEffect(() => {
+    myGroups();
+  }, []);
 
   return (
     <>
