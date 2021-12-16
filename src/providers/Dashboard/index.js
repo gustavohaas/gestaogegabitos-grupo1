@@ -57,14 +57,14 @@ const DashboardProvider = ({ children }) => {
       achieved: achieved,
       how_much_achieved: how_much_achieved + 1,
     };
-    console.log(data);
+    console.log(data.how_much_achieved);
     api
       .patch(`/habits/${habit.id}/`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((resp) => console.log(resp))
+      .then((resp) => listHabits())
       .catch((_) => toast.error("Hábito não encontrado"));
   };
 

@@ -5,8 +5,31 @@ import { toast } from "react-toastify";
 export const GroupsAddContext = createContext();
 
 export const GroupsAddProvider = ({ children }) => {
-  const [actualGroup, setActualGroup] = useState({});
   const token = JSON.parse(localStorage.getItem("@Habitactics:token"));
+
+  const [actualGroup, setActualGroup] = useState({});
+  const [groupList, setGroupList] = useState([]);
+  const [filteredGroupList, setFilteredGroupList] = useState([]);
+
+  const groupSearch = (input) => {
+    api
+      .get("/groups/", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        console.log(response.data.results);
+        setGroupList(response.data.results);
+        const list = groupList.filter(
+          (item) =>
+            item.name.includes(input) || item.description.includes(input)
+        );
+        setFilteredGroupList(list);
+        console.log(filteredGroupList);
+      })
+      .catch((err) => console.log(err));
+  };
 
   const createGroup = (data) => {
     api
@@ -22,18 +45,59 @@ export const GroupsAddProvider = ({ children }) => {
       .catch((_) => toast.error("Houve um erro ao cadastrar grupo"));
   };
 
-  const getAGroup = (groupId) => {
+  // const getAGroup = (groupId) => {
+  //   api
+  //     .get(`/groups/${groupId}/`)
+  //     .then((response) => setActualGroup(response.data))
+  //     .catch((error) => console.log(error));
+  // };
+
+  //Inscrever-se em um grupo
+  const subscribeOnGroup = (group_id) => {
     api
-      .get(`/groups/${groupId}/`)
-      .then((response) => setActualGroup(response.data))
-      .catch((error) => console.log(error));
+      .post(`/groups/${group_id}/subscribe`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((resp) => console.log("Inscrito"))
+      .catch((err) => console.log(err));
   };
+
+  //Mostrar minhas inscrições
+  const myGroups = () => {
+    api
+      .get("/groups/subscriptions/", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((resp) => console.log("Inscrito"))
+      .catch((err) => console.log(err));
+  };
+
+  //Sair de um grupo
+
+  const leaveGroup = (group_id) => {
+    api
+      .delete(`/groups/${group_id}/unsubscribe`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((resp) => console.log("Inscrito"))
+      .catch((err) => console.log(err));
+  };
+
   return (
     <GroupsAddContext.Provider
       value={{
         createGroup,
-        getAGroup,
         actualGroup,
+        groupSearch,
+        subscribeOnGroup,
+        leaveGroup,
+        groupList,
       }}
     >
       {children}
