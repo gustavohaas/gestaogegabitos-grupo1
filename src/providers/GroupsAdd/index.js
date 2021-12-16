@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import api from "../../services/api";
 import { toast } from "react-toastify";
+import { useEffect } from "react";
 
 export const GroupsAddContext = createContext();
 
@@ -10,6 +11,7 @@ export const GroupsAddProvider = ({ children }) => {
   const [actualGroup, setActualGroup] = useState({});
   const [groupList, setGroupList] = useState([]);
   const [filteredGroupList, setFilteredGroupList] = useState([]);
+  const [subscribedGroups, setSubscribedGroups] = useState([]);
 
   const groupSearch = (input) => {
     api
@@ -72,7 +74,7 @@ export const GroupsAddProvider = ({ children }) => {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((resp) => console.log("Inscrito"))
+      .then((resp) => setSubscribedGroups(resp.data))
       .catch((err) => console.log(err));
   };
 
@@ -98,6 +100,8 @@ export const GroupsAddProvider = ({ children }) => {
         subscribeOnGroup,
         leaveGroup,
         groupList,
+        myGroups,
+        subscribedGroups
       }}
     >
       {children}
