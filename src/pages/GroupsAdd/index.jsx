@@ -70,7 +70,11 @@ const GroupsAdd = ({ popupCloseHandler, visibility }) => {
           </div>
           <div>
             <Button type="submit">Adicionar</Button>
-            <Button className="cancelButton" onClick={handleCancel}>
+            <Button
+              type="button"
+              className="cancelButton"
+              onClick={handleCancel}
+            >
               Fechar
             </Button>
           </div>

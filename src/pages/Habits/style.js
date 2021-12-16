@@ -53,10 +53,10 @@ const Container = styled.div`
       width: 50%;
       margin: 2px 0;
     }
+  }
 
-    .cancelButton {
-      background: var(--darkgrey);
-    }
+  .cancelButton {
+    background: var(--darkgrey);
   }
 `;
 
