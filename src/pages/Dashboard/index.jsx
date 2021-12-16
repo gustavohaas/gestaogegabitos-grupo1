@@ -16,6 +16,7 @@ import { IoIosStats } from "react-icons/io";
 
 import { DashboardContext } from "../../providers/Dashboard";
 import { useEffect } from "react";
+import Progress from "../Progress";
 // import PopUpConfigHabit from "../../components/PopUpConfigHabit";
 
 const Dashboard = () => {
@@ -31,6 +32,9 @@ const Dashboard = () => {
 
   const [isConfigVisible, setIsConfigVisible] = useState(false);
   const [page, setPage] = useState("user");
+  const [toggleProgress, setToggleProgress] = useState(false);
+
+  const userName = JSON.parse(localStorage.getItem("@Habitactics:username")) || "";
 
   const handlePage = (page) => {
     setPage(page);
@@ -45,19 +49,19 @@ const Dashboard = () => {
       <DashboardContainer>
         <Header />
         <h2>
-          Olá, <br></br>usuário
+          Olá, <br></br>{userName}
         </h2>
         <div className="navContainer">
-          <BlackButton className="overviewButton">
+          <BlackButton onClick={() => setToggleProgress(false)} className="overviewButton">
             <BsListTask size="1em" class="listIcon" />
             Geral
           </BlackButton>
-          <BlackButton>
+          <BlackButton onClick={() => setToggleProgress(true)}>
             <IoIosStats size="1em" class="statsIcon" />
             Progresso
           </BlackButton>
         </div>
-        <HabitsList />
+        {toggleProgress ? <Progress /> : <HabitsList />}
         <Menu personalColorScheme={true} />
       </DashboardContainer>
       {/* {isConfigVisible && (
