@@ -32,6 +32,8 @@ const Dashboard = () => {
   const [isConfigVisible, setIsConfigVisible] = useState(false);
   const [page, setPage] = useState("user");
 
+  const username = localStorage.getItem("@Habitactics:username");
+
   const handlePage = (page) => {
     setPage(page);
   };
@@ -47,6 +49,8 @@ const Dashboard = () => {
         <h2>Olá, usuário</h2>
       </div>
       <DashboardContainer>
+        <Header />
+        <h2>Olá, {username}!</h2>
         <div className="navContainer">
           <BlackButton className="overviewButton">
             <BsListTask size="1em" class="listIcon" />

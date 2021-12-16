@@ -9,7 +9,7 @@ export const Header = styled.header`
 
 export const LogoTitle = styled.h1`
   color: var(--white);
-  font-family: "Hurricane";
+  font-family: "Hurricane", cursive;
 `;
 
 export const LogoImage = styled.img`
