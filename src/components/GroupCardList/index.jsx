@@ -10,25 +10,24 @@ const GroupCardList = () => {
 
     const [isConfigVisible, setIsConfigVisible] = useState(false);
 
+    console.log(subscribedGroups);
+
     return (
         <>
-            <Container>
-                {subscribedGroups.map((item, index) => {
-                    return (
-                            <Card key={index} onClick={() => setIsConfigVisible(!isConfigVisible)}>
-                                <h4>{item.name}</h4>
-                            </Card>
-                    )
-                })}
-            </Container>
-            {isConfigVisible && (
-                <GroupListPopUp
-                setIsConfigVisible={setIsConfigVisible}
-
-                />
+            {subscribedGroups.map((item, index) =>
+                <>
+                    <Container>
+                        <Card key={index} onClick={() => setIsConfigVisible(!isConfigVisible)}>
+                            <h4>{item.name}</h4>
+                        </Card>
+                    </Container>
+                    {isConfigVisible && (<GroupListPopUp
+                        setIsConfigVisible={setIsConfigVisible}
+                        item={item}
+                    />)}
+                </>
             )}
         </>
-
     )
 }
 

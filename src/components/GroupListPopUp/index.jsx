@@ -8,17 +8,17 @@ import { ActivityList } from '../GroupActivity/index'
 
 
 
-export const GroupListPopUp = ({setIsConfigVisible, groupID}) => {
+export const GroupListPopUp = ({ item, setIsConfigVisible, groupID }) => {
 
-    const {GroupSearch, filteredGroupList} = useContext(GroupSearchContex);
+  const { GroupSearch, filteredGroupList } = useContext(GroupSearchContex);
 
-    return (
-        <>
+  return (
+    <>
       <Container>
         <PopupDiv>
-          <ActivityList groupID={groupID}/>
+          <ActivityList groupID={item.id} />
         </PopupDiv>
       </Container>
     </>
-    )
+  )
 }
