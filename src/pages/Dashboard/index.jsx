@@ -46,11 +46,11 @@ const Dashboard = () => {
     <Container>
       <Header />
       <div className="msgContainer">
-        <h2>Olá, usuário</h2>
+        <h2>Olá, {username.replaceAll('"', "")}!</h2>
       </div>
       <DashboardContainer>
         <Header />
-        <h2>Olá, {username}!</h2>
+        {/* <h2>Olá, {username}!</h2> */}
         <div className="navContainer">
           <BlackButton className="overviewButton">
             <BsListTask size="1em" class="listIcon" />
