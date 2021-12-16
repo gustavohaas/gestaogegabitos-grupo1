@@ -2,15 +2,15 @@ import Header from "../../components/Header";
 import BlackButton from "../../components/BlackButton";
 import HabitsList from "../../components/HabitsList";
 import UserProgress from "../../components/UserProgress";
-import { Container, IconButton } from "./style";
+import { Container, DashboardContainer, IconButton } from "./style";
 import Menu from "../../components/Menu";
-import Button from "../../components/Button";
 import { useContext, useState } from "react";
-import MiniButton from "../../components/MiniButon";
+// import Button from "../../components/Button";
+// import MiniButton from "../../components/MiniButon";
 
 //icons
-import { GoGear, GoPlusSmall, GoSearch } from "react-icons/go";
-import { MdListAlt, MdPeopleOutline } from "react-icons/md";
+// import { GoGear, GoPlusSmall, GoSearch } from "react-icons/go";
+// import { MdListAlt, MdPeopleOutline } from "react-icons/md";
 import { BsListTask } from "react-icons/bs";
 import { IoIosStats } from "react-icons/io";
 
@@ -19,8 +19,15 @@ import { useEffect } from "react";
 // import PopUpConfigHabit from "../../components/PopUpConfigHabit";
 
 const Dashboard = () => {
-  const { deleteHabit, addHowMuch, searchHabit, achieveHabit, editHabit, listHabits, list } =
-    useContext(DashboardContext);
+  const {
+    deleteHabit,
+    addHowMuch,
+    searchHabit,
+    achieveHabit,
+    editHabit,
+    listHabits,
+    list,
+  } = useContext(DashboardContext);
 
   const [isConfigVisible, setIsConfigVisible] = useState(false);
   const [page, setPage] = useState("user");
@@ -34,8 +41,8 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <>
-      <Container>
+    <Container>
+      <DashboardContainer>
         <Header />
         <h2>
           Olá, <br></br>usuário
@@ -52,11 +59,11 @@ const Dashboard = () => {
         </div>
         <HabitsList />
         <Menu personalColorScheme={true} />
-      </Container>
+      </DashboardContainer>
       {/* {isConfigVisible && (
         <PopUpConfigHabit setIsConfigVisible={setIsConfigVisible} />
       )} */}
-    </>
+    </Container>
   );
 };
 

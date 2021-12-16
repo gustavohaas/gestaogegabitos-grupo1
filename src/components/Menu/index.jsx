@@ -14,21 +14,23 @@ const Menu = ({ personalColorScheme = false, groupsColorScheme = false }) => {
 
   return (
     <StyledMenu>
-      <PersonalButton
-        personalColorScheme={personalColorScheme}
-        onClick={() => navigateToDashboard("/dashboard")}
-      >
-        <BsPerson size="1.6em" />
-      </PersonalButton>
-      <Button>
-        <GoPlusSmall size="2.5em" />
-      </Button>
-      <GroupsButton
-        groupsColorScheme={groupsColorScheme}
-        onClick={() => navigateToDashboard("/groups")}
-      >
-        <MdPeopleOutline size="2em" />
-      </GroupsButton>
+      <div>
+        <PersonalButton
+          personalColorScheme={personalColorScheme}
+          onClick={() => navigateToDashboard("/dashboard")}
+        >
+          <BsPerson size="1.6em" />
+        </PersonalButton>
+        <Button>
+          <GoPlusSmall size="2.5em" />
+        </Button>
+        <GroupsButton
+          groupsColorScheme={groupsColorScheme}
+          onClick={() => navigateToDashboard("/groups")}
+        >
+          <MdPeopleOutline size="2em" />
+        </GroupsButton>
+      </div>
     </StyledMenu>
   );
 };

@@ -1,12 +1,19 @@
 import styled from "styled-components";
 
 export const StyledMenu = styled.footer`
-  display: flex;
-  justify-content: space-evenly;
   width: 100%;
   bottom: 0;
   left: 0;
   position: fixed;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 75%;
+    max-width: 550px;
+    margin: 0 auto;
+  }
 
   button {
     display: flex;
@@ -34,7 +41,5 @@ export const GroupsButton = styled.button`
   border-radius: 10px;
   border-style: none;
   color: ${(props) => (props.groupsColorScheme ? "#5c5ae5" : "#ffffff")};
-  /* :hover {
-    color: var(--purple-blue);
-  } */
+
 `;

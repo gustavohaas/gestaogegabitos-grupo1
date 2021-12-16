@@ -8,7 +8,7 @@ export const Container = styled.div`
   position: absolute;
   height: 100vh;
   width: 100vw;
-  background-color: #05041980;
+  background-color: rgb(0, 0, 0, 0.7);
 
   top: 0;
   left: 0;

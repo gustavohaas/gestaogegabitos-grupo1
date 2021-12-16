@@ -15,12 +15,12 @@ const HabitsList = () => {
   console.log(list);
   return (
     <Container>
-      <SearchInput
-        icon={GoSearch}
-        name="search"
-        className="searchInput"
-        onChange={(e) => searchHabit(e.target.value)}
-      />
+        <SearchInput
+          icon={GoSearch}
+          name="search"
+          className="searchInput"
+          onChange={(e) => searchHabit(e.target.value)}
+        />
       {habits > 0 ? (
         list.map((iten) => (
           <HabitCard addHowMuch={addHowMuch}>{iten}</HabitCard>

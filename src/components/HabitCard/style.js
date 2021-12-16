@@ -2,11 +2,22 @@ import styled from "styled-components";
 
 export const Card = styled.div`
   background-color: var(--darkgrey);
-  width: 300px;
-  min-height: 40px;
+  width: 90%;
+  height: 40px;
   margin: 5px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   border-radius: 10px;
-  padding: 10px;
+  padding: 20px 0;
+
+  div {
+    display: flex;
+    align-items: center;
+
+    h5 {
+      font-weight: 300;
+      font-size: 1rem;
+    }
+  }
 `;
