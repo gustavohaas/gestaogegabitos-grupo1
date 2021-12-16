@@ -5,22 +5,25 @@ import ProgressProvider from "./Progress";
 import { HabitProvider } from "./Habits";
 import { GroupsAddProvider } from "./GroupsAdd";
 import GoalsProvider from "./Goals";
+import GroupSearchProvider from "./GroupSearch";
 
 const Providers = ({ children }) => {
   return (
-    <GoalsProvider>
-      <GroupsAddProvider>
-        <HabitProvider>
-          <ProgressProvider>
-            <DashboardProvider>
-              <SignInProvider>
-                <SignUpProvider>{children}</SignUpProvider>
-              </SignInProvider>
-            </DashboardProvider>
-          </ProgressProvider>
-          </HabitProvider>
-      </GroupsAddProvider>
-    </GoalsProvider>
+    <GroupSearchProvider>
+      <GoalsProvider>
+        <GroupsAddProvider>
+          <HabitProvider>
+            <ProgressProvider>
+              <DashboardProvider>
+                <SignInProvider>
+                  <SignUpProvider>{children}</SignUpProvider>
+                </SignInProvider>
+              </DashboardProvider>
+            </ProgressProvider>
+            </HabitProvider>
+        </GroupsAddProvider>
+      </GoalsProvider>
+    </GroupSearchProvider>
   );
 };
 
