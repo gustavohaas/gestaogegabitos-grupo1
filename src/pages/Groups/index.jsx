@@ -4,13 +4,13 @@ import { Container } from "./styles";
 import Goals from "../../components/Goals";
 import GroupList from "../../components/GroupList";
 import MyGroups from "../../components/MyGroups";
-import Menu from "../../components/Menu";
 import BlackButton from "../../components/BlackButton";
 //icons
 import { GoSearch } from "react-icons/go";
 import { IoIosStats } from "react-icons/io";
 import { useState } from "react";
 import { GroupSearchPopUp } from "../../components/GroupSearch";
+import GroupsMenu from "../../components/GroupsMenu";
 
 const Groups = () => {
 
@@ -34,12 +34,13 @@ const Groups = () => {
         <GroupList />
         <MyGroups />
       </Container>
-      <Menu groupsColorScheme={true} />
+      <GroupsMenu groupsColorScheme={true} />
       {isConfigVisible && (
         <GroupSearchPopUp
           setIsConfigVisible={setIsConfigVisible}
         />
       )}
+      <GroupsMenu groupsColorScheme={true} />
     </>
   );
 };

@@ -5,9 +5,10 @@ import { GoPlusSmall } from "react-icons/go";
 import { BsPerson } from "react-icons/bs";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
-import Habits from "../../pages/Habits";
+import GroupsAdd from "../../pages/GroupsAdd";
 
-const Menu = ({ personalColorScheme = false, groupsColorScheme = false }) => {
+
+const GroupsMenu = ({ personalColorScheme = false, groupsColorScheme = false }) => {
   const history = useHistory();
 
   const navigateToDashboard = (path) => {
@@ -22,7 +23,7 @@ const Menu = ({ personalColorScheme = false, groupsColorScheme = false }) => {
 
   return (
     <>
-      <Habits popupCloseHandler={popupCloseHandler} visibility={visibility} />
+      <GroupsAdd popupCloseHandler={popupCloseHandler} visibility={visibility} />
       <StyledMenu>
         <div>
           <PersonalButton
@@ -46,4 +47,4 @@ const Menu = ({ personalColorScheme = false, groupsColorScheme = false }) => {
   );
 };
 
-export default Menu;
+export default GroupsMenu;
