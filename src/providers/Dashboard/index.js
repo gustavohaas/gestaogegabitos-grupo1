@@ -116,6 +116,17 @@ const DashboardProvider = ({ children }) => {
       .catch((_) => toast.error("Hábito não encontrado"));
   };
 
+  const searchHabit = () => {
+    api
+      .get(`habits/personal/`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((resp) => console.log(resp.data))
+      .catch((_) => toast.error("Hábito não encontrado"));
+  };
+
   return (
     <DashboardContext.Provider
       value={{

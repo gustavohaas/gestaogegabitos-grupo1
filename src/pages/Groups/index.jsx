@@ -1,11 +1,9 @@
-//components
 import Header from "../../components/Header";
 import { Container } from "./styles";
 import Goals from "../../components/Goals";
 import GroupList from "../../components/GroupList";
 import MyGroups from "../../components/MyGroups";
 import BlackButton from "../../components/BlackButton";
-//icons
 import { GoSearch } from "react-icons/go";
 import { IoIosStats } from "react-icons/io";
 import { useState } from "react";
