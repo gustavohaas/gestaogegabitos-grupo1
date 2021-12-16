@@ -7,6 +7,14 @@ const PopUpConfigHabit = ({ setIsConfigVisible, habit }) => {
   const { deleteHabit, achieveHabit } = useContext(DashboardContext);
 
   console.log(habit);
+
+  function handlePopup() {
+    achieveHabit(habit);
+
+    setTimeout(() => {
+      setIsConfigVisible(false);
+    }, 1000);
+  }
   return (
     <>
       <Container>
@@ -16,10 +24,10 @@ const PopUpConfigHabit = ({ setIsConfigVisible, habit }) => {
               className="greyBtn"
               onClick={() => setIsConfigVisible(false)}
             >
-              X
+              x
             </button>
           </div>
-          <Button className="configBtn" onClick={() => achieveHabit(habit)}>
+          <Button className="configBtn" onClick={handlePopup}>
             Hábito Alcançado
           </Button>
           <Button className="configBtn" onClick={() => deleteHabit(habit)}>

@@ -9,10 +9,19 @@ import { IoIosStats } from "react-icons/io";
 import { useState } from "react";
 import { GroupSearchPopUp } from "../../components/GroupSearch";
 import GroupsMenu from "../../components/GroupsMenu";
+import { useEffect } from "react";
+import { useContext } from "react";
+import { GroupsAddContext } from "../../providers/GroupsAdd";
 
 const Groups = () => {
 
   const [isConfigVisible, setIsConfigVisible] = useState(false);
+
+  const { myGroups } = useContext(GroupsAddContext);
+
+  useEffect(() => {
+    myGroups();
+  }, []);
 
   return (
     <>
@@ -24,10 +33,10 @@ const Groups = () => {
             <GoSearch size="0.8em" class="searchIcon" />
             Buscar grupos
           </BlackButton>
-          <BlackButton className="groupStatsButton">
+          {/* <BlackButton className="groupStatsButton">
             <IoIosStats size="1em" class="statsIcon" />
             Progresso
-          </BlackButton>
+          </BlackButton> */}
         </div>
         <GroupList />
         <MyGroups />

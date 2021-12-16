@@ -36,6 +36,8 @@ const Dashboard = () => {
 
   const userName = JSON.parse(localStorage.getItem("@Habitactics:username")) || "";
 
+  const username = localStorage.getItem("@Habitactics:username");
+
   const handlePage = (page) => {
     setPage(page);
   };
@@ -46,6 +48,10 @@ const Dashboard = () => {
 
   return (
     <Container>
+      <Header />
+      <div className="msgContainer">
+        <h2>Olá, {username.replaceAll('"', "")}!</h2>
+      </div>
       <DashboardContainer>
         <Header />
         <h2>

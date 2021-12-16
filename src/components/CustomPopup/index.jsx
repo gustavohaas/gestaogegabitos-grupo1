@@ -18,9 +18,9 @@ const CustomPopup = (props) => {
         <Overlay style={{ visibility: show ? "visible" : "hidden", opacity: show ? "1" : "0" }}>
             <Popup>
                 <Title>{props.title}</Title>
-                <CloseBtn onClick={closeHandler}>
+                {/* <CloseBtn onClick={closeHandler}>
                     &times;
-                </CloseBtn>
+                </CloseBtn> */}
                 <Content>{props.children}</Content>
             </Popup>
         </Overlay>

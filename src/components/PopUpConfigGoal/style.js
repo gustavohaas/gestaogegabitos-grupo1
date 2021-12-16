@@ -20,8 +20,7 @@ export const PopupDiv = styled.div`
   align-items: center;
   justify-content: center;
   width: 300px;
-  /* height: 198px; */
-  padding-bottom: 20px;
+  height: 198px;
 
   background: #0b0b0b;
   border: 1px solid #222222;
@@ -37,31 +36,23 @@ export const PopupDiv = styled.div`
   }
 
   button.configBtn {
-    width: 90%;
-    margin-top: 5px;
-  }
-
-  button.configBtn2 {
-    width: 90%;
-    margin-top: 5px;
-    margin-bottom: 10px;
-
+    width: 150px;
+    margin: 5px;
   }
 
   button.greyBtn {
-    color: var(--darkgrey);
+    color: grey;
     font-weight: 700;
     width: 20px;
     height: 20px;
     border-radius: 4px;
-    border: none;
+    border: 1px solid #dcdcdc;
     text-align: center;
-    background-color: var(--popup-color);
-    margin: 10px 0;
-    /* padding: 10px; */
 
     :hover {
-      filter: brightness(1.5);
+      background: red;
+      border: none;
+      color: white;
     }
   }
 `;

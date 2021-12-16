@@ -8,7 +8,7 @@ export const Container = styled.div`
   position: absolute;
   height: 100vh;
   width: 100vw;
-  background-color: rgb(0, 0, 0, 0.7);
+  background-color: #05041980;
 
   top: 0;
   left: 0;
@@ -20,15 +20,14 @@ export const PopupDiv = styled.div`
   align-items: center;
   justify-content: center;
   width: 300px;
-  /* height: 198px; */
-  padding-bottom: 20px;
+  height: 300px;
 
   background: #0b0b0b;
   border: 1px solid #222222;
   box-sizing: border-box;
   border-radius: 10px;
 
-  div {
+  div.buttonContainer {
     width: 90%;
     display: flex;
     flex-direction: row;
@@ -37,31 +36,53 @@ export const PopupDiv = styled.div`
   }
 
   button.configBtn {
-    width: 90%;
-    margin-top: 5px;
-  }
-
-  button.configBtn2 {
-    width: 90%;
-    margin-top: 5px;
-    margin-bottom: 10px;
-
+    width: 150px;
+    margin: 5px;
   }
 
   button.greyBtn {
-    color: var(--darkgrey);
+    color: grey;
     font-weight: 700;
     width: 20px;
     height: 20px;
     border-radius: 4px;
-    border: none;
+    border: 1px solid #dcdcdc;
     text-align: center;
-    background-color: var(--popup-color);
-    margin: 10px 0;
-    /* padding: 10px; */
 
     :hover {
-      filter: brightness(1.5);
+      background: red;
+      border: none;
+      color: white;
     }
   }
 `;
+
+export const GroupSearchContainer = styled.span`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    overflow: scroll;
+`;
+
+export const GroupSearchStyle = styled.ul`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    
+
+`;
+
+export const GroupSearchList = styled.li`
+    list-style: none;
+    font-weight: 300;
+    font-size: 16px;
+
+`;
+
+export const ListItemContainer = styled.span`
+    display: flex;
+
+`

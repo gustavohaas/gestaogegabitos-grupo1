@@ -44,7 +44,6 @@ const GlobalStyle = createGlobalStyle`
 
     input, button{
         font-size: 1rem;
-        
     }
 
     button:hover{
