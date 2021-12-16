@@ -4,8 +4,8 @@ import iconLogo from "../../assets/logo.png";
 const Logo = () => {
   return (
     <Header>
-      <LogoTitle>Habitactics</LogoTitle>
       <LogoImage src={iconLogo} />
+      <LogoTitle>Habitactics</LogoTitle>
     </Header>
   );
 };

@@ -15,5 +15,5 @@ export const EditProfileButton = styled.button`
   background: var(--black);
   border-radius: 10px;
   border-style: none;
-  color: var(--white);
+  color: ${(props) => (props.colorScheme ? "#5c5ae5" : "#ffffff")};
 `;
