@@ -20,14 +20,14 @@ export const PopupDiv = styled.div`
   align-items: center;
   justify-content: center;
   width: 300px;
-  height: 198px;
+  height: 200px;
 
   background: #0b0b0b;
   border: 1px solid #222222;
   box-sizing: border-box;
   border-radius: 10px;
 
-  div {
+  div.buttonContainer {
     width: 90%;
     display: flex;
     flex-direction: row;
@@ -61,14 +61,17 @@ export const GroupSearchContainer = styled.span`
     display: flex;
     align-items: center;
     justify-content: center;
-
+    width: 90%;
+    overflow: scroll;
 `;
 
 export const GroupSearchStyle = styled.ul`
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
+    width: 90%;
+    overflow: scroll;
 
 `;
 

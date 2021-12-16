@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { useState } from "react";
 import { GoSearch } from "react-icons/go";
 import { GroupSearchContex } from "../../providers/GroupSearch";
+import GroupSearchCard from "../GroupSearchCard";
 import SearchInput from "../SearchInput";
-import { Container, PopupDiv, GroupSearchStyle, GroupSearchContainer, GroupSearchList, ListItemContainer } from "./style"
+import { Container, PopupDiv, GroupSearchStyle, GroupSearchContainer, } from "./style"
 
 
 
@@ -15,7 +15,7 @@ export const GroupSearchPopUp = ({setIsConfigVisible}) => {
         <>
       <Container>
         <PopupDiv>
-          <div>
+          <div className="buttonContainer">
             <button
               className="greyBtn"
               onClick={() => setIsConfigVisible(false)}
@@ -33,12 +33,9 @@ export const GroupSearchPopUp = ({setIsConfigVisible}) => {
               <GroupSearchStyle>
                 {filteredGroupList?.map((item, index) => {
                     return (
-                        <ListItemContainer>
-                            <GroupSearchList key={index}>
-                                {item.name}
-                            </GroupSearchList>
-                            
-                        </ListItemContainer>
+                      <GroupSearchCard key={index} >
+                        {item}
+                      </GroupSearchCard>
                     )
                 })}
               </GroupSearchStyle>
