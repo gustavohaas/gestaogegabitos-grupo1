@@ -44,6 +44,10 @@ const Dashboard = () => {
 
   return (
     <Container>
+      <Header />
+      <div className="msgContainer">
+        <h2>Olá, usuário</h2>
+      </div>
       <DashboardContainer>
         <Header />
         <h2>Olá, {username}!</h2>

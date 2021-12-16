@@ -14,12 +14,13 @@ export const Overlay = styled.div`
 
 export const Popup = styled.div`
   margin: 70px auto;
-  background: linear-gradient( 
-90deg, #fc466b 0%, #5c5ae5 103.5%, rgba(63,94,251,0) 104.96% );
-  border-radius: 5px;
+  background-color: var(--popup-color);
+  border-radius: 10px;
   width: 99%;
   position: relative;
   transition: all 5s ease-in-out;
+
+
   @media screen and (max-width: 479px) {
     width: 96%;
   }
@@ -34,13 +35,14 @@ export const Popup = styled.div`
   }
   @media screen and (min-width: 1024px) {
     width: 36%;
-}
+  }
 `;
 
 export const Title = styled.h3`
   margin-top: 0;
   color: #fff;
   font-size: 20px;
+  font-weight: 300;
   margin-left: 20px;
   text-align: left;
   text-shadow: 1px 1px 1px #333;

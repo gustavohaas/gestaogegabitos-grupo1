@@ -2,9 +2,13 @@ import styled from "styled-components";
 
 export const StyledMenu = styled.footer`
   width: 100%;
+  /* display: flex; */
+  /* margin-top: 10px; */
+  background-color: var(--black);
   bottom: 0;
   left: 0;
   position: fixed;
+
 
   div {
     display: flex;
