@@ -20,7 +20,7 @@ export const PopupDiv = styled.div`
   align-items: center;
   justify-content: center;
   width: 300px;
-  height: 200px;
+  height: 300px;
 
   background: #0b0b0b;
   border: 1px solid #222222;
@@ -71,7 +71,7 @@ export const GroupSearchStyle = styled.ul`
     align-items: center;
     justify-content: center;
     width: 90%;
-    overflow: scroll;
+    
 
 `;
 
