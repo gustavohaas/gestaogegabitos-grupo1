@@ -15,6 +15,7 @@ export const Card = styled.div`
   div {
     display: flex;
     align-items: center;
+    margin-left: 10px;
 
     h5 {
       font-weight: 300;

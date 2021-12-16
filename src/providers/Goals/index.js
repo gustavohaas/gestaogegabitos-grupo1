@@ -51,7 +51,7 @@ const GoalsProvider = ({ children }) => {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((res) => console.log(res))
+      .then((res) => listGoals(goal.group))
       .catch((_) => toast.error("Meta não encontrada"));
   };
 
@@ -62,7 +62,21 @@ const GoalsProvider = ({ children }) => {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((resp) => console.log(resp))
+      .then((_) => listGoals(goal.group))
+      .catch((_) => toast.error("Hábito não encontrado"));
+  };
+
+  const listGoals = (id) => {
+    api
+      .get(`/goals/?group=${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((resp) => {
+        console.log(resp.data);
+        setGoals(resp.data);
+      })
       .catch((_) => toast.error("Hábito não encontrado"));
   };
 
@@ -73,6 +87,8 @@ const GoalsProvider = ({ children }) => {
         searchGoal,
         achieveGoal,
         deleteGoal,
+        listGoals,
+        goals,
       }}
     >
       {children}

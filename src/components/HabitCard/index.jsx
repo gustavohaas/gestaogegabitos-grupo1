@@ -9,8 +9,11 @@ const HabitCard = ({ addHowMuch, children }) => {
   return (
     <>
       <Card>
-        <h5>{children.title} </h5>
-        <MiniButton onClick={() => addHowMuch(children)}>+</MiniButton>
+        <div className="">
+          <MiniButton onClick={() => addHowMuch(children)}>+</MiniButton>
+          <h5>{children.title} </h5>
+        </div>
+
         <MiniButton onClick={() => setIsConfigVisible(!isConfigVisible)}>
           ...
         </MiniButton>

@@ -6,9 +6,10 @@ import { useForm } from "react-hook-form";
 import { GroupsAddContext, ProviderGroup } from "../../providers/GroupsAdd";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
-import { Container } from "../../components/Input/style";
+import { Container, ButtonContainer } from "./style";
+import CustomPopup from "../../components/CustomPopup";
 
-const GroupsAdd = () => {
+const GroupsAdd = ({ popupCloseHandler, visibility }) => {
   const { createGroup } = ProviderGroup(GroupsAddContext);
 
   const schema = yup.object().shape({
@@ -34,42 +35,48 @@ const GroupsAdd = () => {
   };
 
   const handleCancel = () => {
-    //Somente fecha o popup
+    popupCloseHandler();
   };
 
   return (
-    <Container>
-      <Header />
-      <Menu />
-      <h1>Criar Grupo</h1>
-      <form onSubmit={handleSubmit(handleAddGroup)}>
-        <Input
-          label="name"
-          register={register}
-          error={!!errors.title}
-          errorMsg={errors.title?.message}
-          name="name"
-        />
-        <Input
-          label="description"
-          register={register}
-          error={!!errors.description}
-          errorMsg={errors.description?.message}
-          name="description"
-        />
-        <div>
-          Escolha uma Categoria
-          <select {...register("category")}>
-            <option value="saude">Saude</option>
-            <option value="hobby">Hobby</option>
-            <option value="estudo">Estudo</option>
-            <option value="Culinariay">Culinaria</option>
-          </select>
-          <Button type="submit">Adicionar</Button>
-        </div>
-      </form>
-      <Button onClick={handleCancel}>Cancelar</Button>
-    </Container>
+    <CustomPopup
+      onClose={popupCloseHandler}
+      show={visibility}
+      title={""}
+    >
+      <Container>
+        <h1>Criar Grupo</h1>
+        <form onSubmit={handleSubmit(handleAddGroup)}>
+          <Input
+            label="name"
+            register={register}
+            error={!!errors.title}
+            errorMsg={errors.title?.message}
+            name="name"
+            placeholder="Nome do grupo"
+          />
+          <Input
+            label="description"
+            register={register}
+            error={!!errors.description}
+            errorMsg={errors.description?.message}
+            name="description"
+            placeholder="Descrição do grupo"
+          />
+          <div>
+            Escolha uma Categoria
+            <select {...register("category")}>
+              <option value="saude">Saude</option>
+              <option value="hobby">Hobby</option>
+              <option value="estudo">Estudo</option>
+              <option value="Culinariay">Culinaria</option>
+            </select>
+            <Button type="submit">Adicionar</Button>
+          </div>
+        </form>
+        <Button onClick={handleCancel}>Cancelar</Button>
+      </Container>
+    </CustomPopup>
   );
 };
 
