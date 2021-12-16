@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { GroupsAddContext, ProviderGroup } from "../../providers/GroupsAdd";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
-import { Container } from "../../components/Input/style";
+import { Container, ButtonContainer } from "./style";
 import CustomPopup from "../../components/CustomPopup";
 
 const GroupsAdd = ({ popupCloseHandler, visibility }) => {
@@ -35,10 +35,6 @@ const GroupsAdd = ({ popupCloseHandler, visibility }) => {
   };
 
   const handleCancel = () => {
-    //Somente fecha o popup
-  };
-
-  const handleCancel = () => {
     popupCloseHandler();
   };
 
@@ -49,8 +45,6 @@ const GroupsAdd = ({ popupCloseHandler, visibility }) => {
       title={""}
     >
       <Container>
-        <Header />
-        <Menu />
         <h1>Criar Grupo</h1>
         <form onSubmit={handleSubmit(handleAddGroup)}>
           <Input
@@ -59,6 +53,7 @@ const GroupsAdd = ({ popupCloseHandler, visibility }) => {
             error={!!errors.title}
             errorMsg={errors.title?.message}
             name="name"
+            placeholder="Nome do grupo"
           />
           <Input
             label="description"
@@ -66,6 +61,7 @@ const GroupsAdd = ({ popupCloseHandler, visibility }) => {
             error={!!errors.description}
             errorMsg={errors.description?.message}
             name="description"
+            placeholder="Descrição do grupo"
           />
           <div>
             Escolha uma Categoria
