@@ -73,6 +73,7 @@ const GoalsProvider = ({ children }) => {
         searchGoal,
         achieveGoal,
         deleteGoal,
+        goals
       }}
     >
       {children}

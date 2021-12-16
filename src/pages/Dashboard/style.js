@@ -13,11 +13,7 @@ export const DashboardContainer = styled.div`
     top: 70px;
   }
 
-  button {
+  .overviewButton {
     margin-right: 10px;
-  }
-
-  button:hover {
-    filter: brightness(1.5);
   }
 `;

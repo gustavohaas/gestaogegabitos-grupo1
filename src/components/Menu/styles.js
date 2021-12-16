@@ -10,7 +10,7 @@ export const StyledMenu = styled.footer`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 75%;
+    width: 80%;
     max-width: 550px;
     margin: 0 auto;
   }
@@ -30,12 +30,22 @@ export const PersonalButton = styled.button`
   border-radius: 10px;
   border-style: none;
   color: ${(props) => (props.personalColorScheme ? "#5c5ae5" : "#ffffff")};
+  transition: 0.4s;
+
+  &:hover {
+    color: #5c5ae5;
+  }
 `;
 
 export const GroupsButton = styled.button`
   background: var(--black);
   border-radius: 10px;
   border-style: none;
+  padding-right: 0px;
   color: ${(props) => (props.groupsColorScheme ? "#5c5ae5" : "#ffffff")};
+  transition: 0.4s;
 
+  &:hover {
+    color: #5c5ae5;
+  }
 `;

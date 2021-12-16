@@ -15,8 +15,7 @@ export const Btn = styled.button`
   width: 343px;
   height: 48px;
   cursor: pointer;
-  
+
   :hover {
-    filter: brightness(1.2);
-  }
+    filter: brightness(1.1);
 `;

@@ -10,6 +10,7 @@ export const Card = styled.div`
   justify-content: space-between;
   border-radius: 10px;
   padding: 20px 0;
+  transition: 0.3s;
 
   div {
     display: flex;
@@ -19,5 +20,9 @@ export const Card = styled.div`
       font-weight: 300;
       font-size: 1rem;
     }
+  }
+
+  :hover {
+    filter: brightness(1.5);
   }
 `;

@@ -45,16 +45,16 @@ export const Container = styled.div`
   border-bottom-right-radius: 10px;
   display: flex;
   flex-direction: column;
-  /* justify-content: flex-start; */
+  /* justify-content: center; */
   align-items: center;
   overflow: auto;
-  max-height: 380px;
+  height: 380px;
   padding-top: 10px;
   padding-bottom: 10px;
 
   p {
     font-weight: 300;
-    padding: 50px 0;
+    padding: 130px 0;
     text-align: center;
   }
 

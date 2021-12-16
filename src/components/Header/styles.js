@@ -21,4 +21,9 @@ export const EditProfileButton = styled.button`
   border-style: none;
   /* transform: translateX(10px); */
   color: ${(props) => (props.colorScheme ? "#5c5ae5" : "#ffffff")};
+  transition: 0.5s;
+
+  &:hover {
+    color: #5c5ae5;
+  }
 `;

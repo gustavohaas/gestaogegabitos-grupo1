@@ -48,7 +48,7 @@ const Dashboard = () => {
           Olá, <br></br>usuário
         </h2>
         <div className="navContainer">
-          <BlackButton>
+          <BlackButton className="overviewButton">
             <BsListTask size="1em" class="listIcon" />
             Geral
           </BlackButton>

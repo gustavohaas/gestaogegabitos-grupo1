@@ -26,7 +26,9 @@ const HabitsList = () => {
       <Container>
         {habits > 0 ? (
           list.map((iten) => (
-            <HabitCard addHowMuch={addHowMuch}>{iten}</HabitCard>
+            <HabitCard key={iten.id} addHowMuch={addHowMuch}>
+              {iten}
+            </HabitCard>
           ))
         ) : (
           <p>Você ainda não possui nenhum hábito cadastrado.</p>
