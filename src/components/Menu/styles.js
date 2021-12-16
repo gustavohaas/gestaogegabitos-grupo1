@@ -30,10 +30,6 @@ export const PersonalButton = styled.button`
   border-radius: 10px;
   border-style: none;
   color: ${(props) => (props.personalColorScheme ? "#5c5ae5" : "#ffffff")};
-  /* transition: 0.5s;
-  :hover {
-    color: var(--purple-blue);
-  } */
 `;
 
 export const GroupsButton = styled.button`

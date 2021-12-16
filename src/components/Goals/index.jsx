@@ -1,7 +1,9 @@
+import { useContext } from "react";
+import { GoalsContext } from "../../providers/Goals";
 import { Container } from "./styles";
 
 const Goals = () => {
-  const goals = 0;
+  const { goals } = useContext(GoalsContext);
 
   return (
     <Container>

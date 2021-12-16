@@ -1,4 +1,4 @@
-import { Container } from "./styles";
+import { SearchContainer, Container } from "./styles";
 import SearchInput from "../SearchInput";
 
 //icons
@@ -14,21 +14,25 @@ const HabitsList = () => {
 
   console.log(list);
   return (
-    <Container>
+    <>
+      <SearchContainer>
         <SearchInput
           icon={GoSearch}
           name="search"
           className="searchInput"
           onChange={(e) => searchHabit(e.target.value)}
         />
-      {habits > 0 ? (
-        list.map((iten) => (
-          <HabitCard addHowMuch={addHowMuch}>{iten}</HabitCard>
-        ))
-      ) : (
-        <p>Você ainda não possui nenhum hábito cadastrado.</p>
-      )}
-    </Container>
+      </SearchContainer>
+      <Container>
+        {habits > 0 ? (
+          list.map((iten) => (
+            <HabitCard addHowMuch={addHowMuch}>{iten}</HabitCard>
+          ))
+        ) : (
+          <p>Você ainda não possui nenhum hábito cadastrado.</p>
+        )}
+      </Container>
+    </>
   );
 };
 
