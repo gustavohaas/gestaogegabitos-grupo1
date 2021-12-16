@@ -44,7 +44,6 @@ const SignInProvider = ({ children }) => {
           "@Habitactics:username",
           JSON.stringify(data.username) || []
         );
-
         history.push("/dashboard");
         toast.success(`Seja bem vindo ${data.username}`);
       })
@@ -61,7 +60,7 @@ const SignInProvider = ({ children }) => {
   };
 
   return (
-    <SignInContext.Provider value={{ signIn, toSignUp, userId }}>
+    <SignInContext.Provider value={{ isAuth, setIsAuth, signIn, toSignUp, userId }}>
       {children}
     </SignInContext.Provider>
   );

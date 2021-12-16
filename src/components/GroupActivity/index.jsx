@@ -74,19 +74,15 @@ export const ActivityUpdatePopUp= (activityID) => {
     )
 }
 
-export const ActivityList = () => {
+export const ActivityList = ({groupID}) => {
 
     const { activitiesList, searchActivities } = useContext(GroupsActivitiesContext);
 
     const [visibility, setVisibility] = useState(false);
 
-    const popupCloseHandler = (e) => {
-        setVisibility(e);
-    }
-
     useEffect(() => {
-        searchActivities(422);
-    },"")
+        searchActivities(groupID);
+    },[]);
 
     return (
         <ul>
@@ -96,10 +92,6 @@ export const ActivityList = () => {
                         <Checkbox />
                         <StyleList key={index}>
                             {item.title}
-                            <HabitBtn onClick={(e) => setVisibility(!visibility)}>…</HabitBtn>
-                            <GroupActivityPopUp onClose={popupCloseHandler} show={visibility} title={`Atividade`}>
-                                <ActivityUpdatePopUp activityID={item.id}/>
-                            </GroupActivityPopUp>
                         </StyleList>
                     </StyleListContainer>
                     

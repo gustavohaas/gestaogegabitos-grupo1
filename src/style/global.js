@@ -29,11 +29,21 @@ const GlobalStyle = createGlobalStyle`
         color: var(--white);
         font-family: "Roboto", sans-serif ;
         font-size: 1rem;
+        &::-webkit-scrollbar {
+            width: 16px;
+        }
+        &::-webkit-scrollbar-track {
+            background: var(--purple-blue);
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--vivid-pink);
+            border-radius: 20px;
+            border: 3px solid var(--purple-blue);
+        }
     }
 
     input, button{
         font-size: 1rem;
-        
     }
 
     button:hover{

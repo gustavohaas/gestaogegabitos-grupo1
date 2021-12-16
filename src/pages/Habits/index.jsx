@@ -84,10 +84,15 @@ const Habits = ({ popupCloseHandler, visibility }) => {
           </div>
           <div>
             <Button type="submit">Adicionar</Button>
-            
+            <Button
+              type="button"
+              className="cancelButton"
+              onClick={handleCancel}
+            >
+              Fechar
+            </Button>
           </div>
         </form>
-        <Button className="cancelButton" onClick={handleCancel}>Fechar</Button>
       </Container>
     </CustomPopup>
   );

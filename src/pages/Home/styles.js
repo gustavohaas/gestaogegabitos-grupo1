@@ -6,22 +6,14 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  h1 {
-    font-family: monospace;
-    margin-bottom: 4rem;
-  }
-
   div {
     display: flex;
     width: 300px;
   }
-
   button {
     font-weight: bold;
     height: 40px;
   }
-
   button + button {
     margin-left: 10px;
   }

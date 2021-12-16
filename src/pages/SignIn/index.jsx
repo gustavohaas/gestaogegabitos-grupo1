@@ -7,13 +7,23 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { SignInContext } from "../../providers/SignIn";
 
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const SignIn = () => {
-  const { signIn, toSignUp } = useContext(SignInContext);
+  const { isAuth, setIsAuth, signIn, toSignUp } = useContext(SignInContext);
+
+  let history = useHistory();
+
+  useEffect(() => {
+    const token = JSON.parse(localStorage.getItem("@Habitactics:token")) || [];
+
+    if (!token !== [] && !isAuth === true) {
+      history.push("/dashboard");
+    }
+  }, [history, isAuth]);
 
   const schema = yup.object().shape({
     username: yup.string().required("Campo obrigatório"),
