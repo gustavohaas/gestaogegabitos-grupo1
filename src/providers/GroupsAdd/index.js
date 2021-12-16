@@ -6,8 +6,7 @@ export const GroupsAddContext = createContext();
 
 export const GroupsAddProvider = ({ children }) => {
   const [actualGroup, setActualGroup] = useState({});
-  const token =
-    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM5Njc2MzEyLCJqdGkiOiJkMWQ0ZjAzMWRhMjY0MTc3ODkzYzYxYzg3ZTUwY2Y5ZSIsInVzZXJfaWQiOjkzfQ.Wm-v13rpYHda150FlUmIDjMhnlVl9irb-tRsML1rCjg";
+  const token = JSON.parse(localStorage.getItem("@Habitactics:token"));
 
   const createGroup = (data) => {
     api
