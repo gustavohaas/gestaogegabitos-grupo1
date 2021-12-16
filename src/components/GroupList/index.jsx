@@ -1,7 +1,19 @@
-import { Container } from "./styles";
+import { Container } from "./style";
+import { useContext } from "react";
+import { GroupsAddContext } from "../../providers/GroupsAdd";
 
 const GroupList = () => {
-  const groups = 0;
+  const {
+    createGroup,
+    actualGroup,
+    groupSearch,
+    subscribeOnGroup,
+    leaveGroup,
+    groupList,
+  } = useContext(GroupsAddContext);
+
+  console.log(groupList);
+  const groups = groupList.length;
 
   return (
     <Container>

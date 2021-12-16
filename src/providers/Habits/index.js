@@ -9,7 +9,6 @@ export const HabitProvider = ({ children }) => {
   const token = JSON.parse(localStorage.getItem("@Habitactics:token"));
 
   const createHabit = (data) => {
-    console.log(data);
     api
       .post("habits/", data, {
         headers: {
@@ -18,15 +17,18 @@ export const HabitProvider = ({ children }) => {
       })
       .then((response) => {
         console.log(habit);
-        setHabit([...habit, response]);
+        setHabit([...habit, response.data]);
+        localStorage.setItem("@Habitactics:habits", JSON.stringify(habit));
       })
       .catch((error) => console.log(error));
   };
+  console.log(habit);
 
   return (
     <HabitsContext.Provider
       value={{
         createHabit,
+        habit,
       }}
     >
       {children}
@@ -34,4 +36,4 @@ export const HabitProvider = ({ children }) => {
   );
 };
 
-export const ProviderHabit = () => useContext(HabitsContext);
+export default HabitProvider;

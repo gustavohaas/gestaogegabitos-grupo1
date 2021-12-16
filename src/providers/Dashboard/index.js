@@ -1,18 +1,27 @@
 import { toast } from "react-toastify";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createContext } from "react/cjs/react.development";
 import api from "../../services/api";
+import { HabitsContext, ProviderHabit } from "../Habits";
 
 export const DashboardContext = createContext();
 
 const DashboardProvider = ({ children }) => {
   const [habits, setHabits] = useState({});
+  const [list, setList] = useState([]);
   const token = JSON.parse(localStorage.getItem("@Habitactics:token"));
+
   const addHabit = (data) => {
+    console.log(data);
+    console.log(token);
     api
-      .post("/habits/", data)
+      .post("/habits/", data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((resp) => {
-        setHabits([...habits, resp]);
+        setList([...list, resp.data]);
         console.log(resp);
         toast.success("Hábito cadastrado com sucesso");
       })
@@ -21,12 +30,12 @@ const DashboardProvider = ({ children }) => {
 
   const deleteHabit = (habit) => {
     api
-      .delete(`/habits/${habit.id}`, {
+      .delete(`/habits/${habit.id}/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((resp) => console.log(resp))
+      .then((resp) => listHabits())
       .catch((_) => toast.error("Hábito não encontrado"));
   };
 
@@ -42,18 +51,20 @@ const DashboardProvider = ({ children }) => {
   };
 
   const addHowMuch = (habit) => {
+    console.log(habit);
     const { how_much_achieved, achieved } = habit;
     const data = {
       achieved: achieved,
       how_much_achieved: how_much_achieved + 1,
     };
+    console.log(data.how_much_achieved);
     api
-      .patch(`/habits/${habit.id}`, data, {
+      .patch(`/habits/${habit.id}/`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((resp) => console.log(resp))
+      .then((resp) => listHabits())
       .catch((_) => toast.error("Hábito não encontrado"));
   };
 
@@ -64,12 +75,44 @@ const DashboardProvider = ({ children }) => {
       how_much_achieved: how_much_achieved,
     };
     api
-      .patch(`/habits/${habit.id}`, data, {
+      .patch(`/habits/${habit.id}/`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((resp) => console.log(resp))
+      .then((resp) => listHabits())
+      .catch((_) => toast.error("Hábito não encontrado"));
+  };
+
+  const searchHabit = (input) => {
+    api
+      .get(`habits/personal/`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((resp) => {
+        const searchList = resp.data.filter(
+          (iten) =>
+            iten.title.includes(input) ||
+            iten.category.toLowerCase() === input.toLowerCase()
+        );
+        setList(searchList);
+      })
+      .catch((_) => toast.error("Hábito não encontrado"));
+  };
+
+  const listHabits = () => {
+    api
+      .get(`habits/personal/`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((resp) => {
+        console.log(resp.data);
+        setList(resp.data);
+      })
       .catch((_) => toast.error("Hábito não encontrado"));
   };
 
@@ -89,11 +132,13 @@ const DashboardProvider = ({ children }) => {
       value={{
         habits,
         addHabit,
+        searchHabit,
         deleteHabit,
         editHabit,
         addHowMuch,
         achieveHabit,
-        searchHabit
+        listHabits,
+        list,
       }}
     >
       {children}

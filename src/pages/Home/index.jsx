@@ -1,6 +1,6 @@
 import { Container } from "./styles";
 import Button from "../../components/Button";
-
+import Logo from "../../components/Logo";
 import { useHistory } from "react-router-dom";
 
 const Home = () => {
@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <>
       <Container>
-        <h1>Habitactics</h1>
+        <Logo />
         <div>
           <Button onClick={() => navigateTo("/login")}>Login</Button>
           <Button onClick={() => navigateTo("/signup")}>Cadastrar</Button>
