@@ -1,17 +1,22 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.header`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
+  /* display: flex; */
   position: fixed;
   top: 0;
   left: 0;
-  padding: 10px;
+  padding: 15px;
+  width: 100%;
+  background-color: var(--black);
 
-  h3 {
-    font-weight: 500;
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h3 {
+      font-weight: 500;
+    }
   }
 `;
 
