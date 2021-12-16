@@ -9,7 +9,7 @@ const Goals = () => {
     <Container>
       <h2>Metas</h2>
       {goals > 0 ? (
-        <p>Aqui vai um card para cada meta</p>
+        goals.map((goal) => <p>{goal.title}</p>)
       ) : (
         <p>Você ainda não possui metas.</p>
       )}
