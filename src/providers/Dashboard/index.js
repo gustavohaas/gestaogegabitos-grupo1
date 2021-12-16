@@ -21,7 +21,7 @@ const DashboardProvider = ({ children }) => {
         },
       })
       .then((resp) => {
-        setList([...list, resp]);
+        setList([...list, resp.data]);
         console.log(resp);
         toast.success("Hábito cadastrado com sucesso");
       })
