@@ -22,17 +22,54 @@ export const GroupsAddProvider = ({ children }) => {
       .catch((_) => toast.error("Houve um erro ao cadastrar grupo"));
   };
 
-  const getAGroup = (groupId) => {
+  // const getAGroup = (groupId) => {
+  //   api
+  //     .get(`/groups/${groupId}/`)
+  //     .then((response) => setActualGroup(response.data))
+  //     .catch((error) => console.log(error));
+  // };
+
+  //Inscrever-se em um grupo
+  const subscribeOnGroup = (group_id) => {
     api
-      .get(`/groups/${groupId}/`)
-      .then((response) => setActualGroup(response.data))
-      .catch((error) => console.log(error));
+      .post(`/groups/${group_id}/subscribe`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((resp) => console.log("Inscrito"))
+      .catch((err) => console.log(err));
   };
+
+  //Mostrar minhas inscrições
+  const myGroups = () => {
+    api
+      .get("/groups/subscriptions/", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((resp) => console.log("Inscrito"))
+      .catch((err) => console.log(err));
+  };
+
+  //Sair de um grupo
+
+  const leaveGroup = (group_id) => {
+    api
+      .delete(`/groups/${group_id}/unsubscribe`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((resp) => console.log("Inscrito"))
+      .catch((err) => console.log(err));
+  };
+
   return (
     <GroupsAddContext.Provider
       value={{
         createGroup,
-        getAGroup,
         actualGroup,
       }}
     >
