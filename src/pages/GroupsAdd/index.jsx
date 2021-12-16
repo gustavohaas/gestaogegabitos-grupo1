@@ -39,13 +39,9 @@ const GroupsAdd = ({ popupCloseHandler, visibility }) => {
   };
 
   return (
-    <CustomPopup
-      onClose={popupCloseHandler}
-      show={visibility}
-      title={""}
-    >
+    <CustomPopup onClose={popupCloseHandler} show={visibility} title={""}>
       <Container>
-        <h1>Criar Grupo</h1>
+        <h1>Criar grupo</h1>
         <form onSubmit={handleSubmit(handleAddGroup)}>
           <Input
             label="name"
@@ -64,17 +60,21 @@ const GroupsAdd = ({ popupCloseHandler, visibility }) => {
             placeholder="Descrição do grupo"
           />
           <div>
-            Escolha uma Categoria
+            <span>Categoria:</span>
             <select {...register("category")}>
-              <option value="saude">Saude</option>
+              <option value="saude">Saúde</option>
               <option value="hobby">Hobby</option>
-              <option value="estudo">Estudo</option>
-              <option value="Culinariay">Culinaria</option>
+              <option value="estudo">Estudos</option>
+              <option value="Culinariay">Outros</option>
             </select>
+          </div>
+          <div>
             <Button type="submit">Adicionar</Button>
+            <Button className="cancelButton" onClick={handleCancel}>
+              Fechar
+            </Button>
           </div>
         </form>
-        <Button onClick={handleCancel}>Cancelar</Button>
       </Container>
     </CustomPopup>
   );

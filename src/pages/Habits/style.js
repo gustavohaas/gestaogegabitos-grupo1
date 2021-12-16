@@ -57,7 +57,6 @@ const Container = styled.div`
     .cancelButton {
       background: var(--darkgrey);
     }
-
   }
 `;
 

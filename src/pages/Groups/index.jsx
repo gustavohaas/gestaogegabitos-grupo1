@@ -24,10 +24,10 @@ const Groups = () => {
             <GoSearch size="0.8em" class="searchIcon" />
             Buscar grupos
           </BlackButton>
-          <BlackButton className="groupStatsButton">
+          {/* <BlackButton className="groupStatsButton">
             <IoIosStats size="1em" class="statsIcon" />
             Progresso
-          </BlackButton>
+          </BlackButton> */}
         </div>
         <GroupList />
         <MyGroups />
