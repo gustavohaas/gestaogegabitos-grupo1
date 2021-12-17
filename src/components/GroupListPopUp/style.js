@@ -14,11 +14,18 @@ export const Container = styled.div`
   left: 0;
 `;
 
+export const Header = styled.div`
+  display: flex;
+  width: 90%;
+  justify-content: flex-end;
+  margin-top: 20px;
+`;
+
 export const PopupDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 300px;
   height: 300px;
 
