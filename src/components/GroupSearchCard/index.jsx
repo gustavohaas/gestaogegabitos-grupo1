@@ -14,7 +14,7 @@ const GroupSearchCard = ({ children }) => {
           <h5>{children.name} </h5>
         </div>
 
-        <MiniButton onClick={subscribeOnGroup(children.id)}>
+        <MiniButton onClick={() => subscribeOnGroup(children.id)}>
           +
         </MiniButton>
       </Card>

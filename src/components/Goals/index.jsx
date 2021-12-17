@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import { GoalsContext } from "../../providers/Goals";
 import GoalCard from "../GoalCard";
-import { Container } from "./styles";
+import { StyleList, StyleListContainer } from "./styles";
 
 const Goals = ({ group }) => {
   // const { goals, listGoals } = useContext(GoalsContext);
@@ -12,15 +12,22 @@ const Goals = ({ group }) => {
   console.log(group.goals)
 
   return (
-    <Container>
+    <>
       <h2>Metas</h2>
-      {group.goals.map((goal) => {
-        return (
-          <GoalCard>{goal}</GoalCard>
-        )
-      })
-      }
-    </Container>
+      <ul>
+        {group.goals.map((goal, index) => {
+          return (
+            <StyleListContainer>
+              <StyleList key={index}>
+                <GoalCard>
+                  {goal}
+                </GoalCard>
+              </StyleList>
+            </StyleListContainer>
+          );
+        })}
+      </ul>
+    </>
   );
 };
 

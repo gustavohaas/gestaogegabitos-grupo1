@@ -4,6 +4,7 @@ export const Container = styled.div`
 
 .msgContainer {
     display: flex;
+    height: 100px;
     /* align-items: flex-start; */
 
     h2 {
