@@ -8,6 +8,7 @@ import Checkbox from "../Checkbox";
 import Input from "../Input";
 import Button from "../Button";
 import GroupActivityPopUp from "../GroupActivityPopUp";
+import ActivityCard from "../ActivityCard";
 
 export const ActiviryCreatePopUp = () => {
 
@@ -17,7 +18,7 @@ export const ActiviryCreatePopUp = () => {
     const activitySchema = yup.object().shape({
         title: yup.string().required("Campo obrigatório"),
         realization_time_date: yup.date().min(new Date()).required("Campo obrigatório"),
-        realization_time: yup.string().máx(5,"Formato de horário inválido").min(5,"Formato de horário inválido").required("Campo obrigatório")
+        realization_time: yup.string().máx(5, "Formato de horário inválido").min(5, "Formato de horário inválido").required("Campo obrigatório")
     })
 
     const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(activitySchema) });
@@ -25,12 +26,12 @@ export const ActiviryCreatePopUp = () => {
     const handleActivity = (data) => {
         const time = data.realization_time_date + 'T' + data.realization_time + 'Z';
 
-        const newData = {"title": data.title, 'realization_time': time, 'group': groupID}
-        
+        const newData = { "title": data.title, 'realization_time': time, 'group': groupID }
+
         createActivity(newData)
     }
 
-    return(
+    return (
         <form onSubmit={handleSubmit(handleActivity)}>
             <label for='title' >
                 Título <span>{errors.title?.message}</span>
@@ -49,8 +50,8 @@ export const ActiviryCreatePopUp = () => {
     );
 };
 
-export const ActivityUpdatePopUp= (activityID) => {
-    
+export const ActivityUpdatePopUp = (activityID) => {
+
     const { updateActivity } = useContext(GroupsActivitiesContext);
 
     const activitySchema = yup.object().shape({
@@ -63,7 +64,7 @@ export const ActivityUpdatePopUp= (activityID) => {
         updateActivity(data, activityID)
     }
 
-    return(
+    return (
         <form onSubmit={handleSubmit(handleActivity)}>
             <label for='title' >
                 Título <span>{errors.title?.message}</span>
@@ -74,30 +75,34 @@ export const ActivityUpdatePopUp= (activityID) => {
     )
 }
 
-export const ActivityList = ({groupID}) => {
+export const ActivityList = ({ group }) => {
 
     const { activitiesList, searchActivities } = useContext(GroupsActivitiesContext);
 
     const [visibility, setVisibility] = useState(false);
 
-    useEffect(() => {
-        searchActivities(groupID);
-    },[]);
+    // useEffect(() => {
+    //     searchActivities(groupID);
+    // },[]);
 
     return (
-        <ul>
-            {activitiesList?.map((item, index) => {
-                return (
-                    <StyleListContainer>
-                        <Checkbox />
-                        <StyleList key={index}>
-                            {item.title}
-                        </StyleList>
-                    </StyleListContainer>
-                    
-                );
-            })}
-        </ul>
+        <>
+            <h2>Atividades</h2>
+            <ul>
+                {group.activities.map((item, index) => {
+                    return (
+                        <StyleListContainer>
+                            <Checkbox />
+                            <StyleList key={index}>
+                                <ActivityCard>
+                                    {item}
+                                </ActivityCard>
+                            </StyleList>
+                        </StyleListContainer>
+                    );
+                })}
+            </ul>
+        </>
     );
 
 };
