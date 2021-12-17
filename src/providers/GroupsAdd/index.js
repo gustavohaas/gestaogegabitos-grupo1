@@ -57,12 +57,15 @@ export const GroupsAddProvider = ({ children }) => {
   //Inscrever-se em um grupo
   const subscribeOnGroup = (group_id) => {
     api
-      .post(`groups/${group_id}/subscribe/`, {
+      .post(`groups/${group_id}/subscribe/`, {}, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((resp) => console.log("Inscrito"))
+      .then((resp) => {
+        myGroups();
+        toast.success("Inscrito com sucesso!");
+      })
       .catch((err) => console.log(token));
   };
 
