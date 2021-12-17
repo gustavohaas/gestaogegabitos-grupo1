@@ -39,7 +39,7 @@ const Groups = () => {
           </BlackButton> */}
         </div>
         <GroupList />
-        <MyGroups />
+        {/* <MyGroups /> */}
       </Container>
       <GroupsMenu groupsColorScheme={true} />
       {isConfigVisible && (
