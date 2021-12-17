@@ -27,7 +27,7 @@ const Groups = () => {
     <>
       <Header />
       <Container>
-        <Goals className="goalsContainer" />
+        {/* <Goals className="goalsContainer" /> */}
         <div className="buttonsContainer">
           <BlackButton className="groupSearchButton" onClick={() => setIsConfigVisible(!isConfigVisible)}>
             <GoSearch size="0.8em" class="searchIcon" />

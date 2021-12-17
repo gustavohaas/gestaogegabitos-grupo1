@@ -5,20 +5,22 @@ import GroupSearchCard from "../GroupSearchCard";
 import SearchInput from "../SearchInput";
 import { Container, PopupDiv, GroupSearchStyle, GroupSearchContainer, } from "./style"
 import { ActivityList } from '../GroupActivity/index'
+import Goals from "../Goals";
 
 
 
-export const GroupListPopUp = ({setIsConfigVisible, groupID}) => {
+export const GroupListPopUp = ({ item, setIsConfigVisible, groupID }) => {
 
-    const {GroupSearch, filteredGroupList} = useContext(GroupSearchContex);
+  const { GroupSearch, filteredGroupList } = useContext(GroupSearchContex);
 
-    return (
-        <>
+  return (
+    <>
       <Container>
         <PopupDiv>
-          <ActivityList groupID={groupID}/>
+          <Goals group={item} />
+          <ActivityList group={item} />
         </PopupDiv>
       </Container>
     </>
-    )
+  )
 }
