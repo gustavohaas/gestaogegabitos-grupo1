@@ -1,18 +1,25 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { GoalsContext } from "../../providers/Goals";
+import GoalCard from "../GoalCard";
 import { Container } from "./styles";
 
-const Goals = () => {
-  const { goals } = useContext(GoalsContext);
+const Goals = ({ group }) => {
+  // const { goals, listGoals } = useContext(GoalsContext);
+
+  // useEffect(() => {
+  //   listGoals(groupID);
+  // }, []);
+  console.log(group.goals)
 
   return (
     <Container>
       <h2>Metas</h2>
-      {goals > 0 ? (
-        goals.map((goal) => <p>{goal.title}</p>)
-      ) : (
-        <p>Você ainda não possui metas.</p>
-      )}
+      {group.goals.map((goal) => {
+        return (
+          <GoalCard>{goal}</GoalCard>
+        )
+      })
+      }
     </Container>
   );
 };

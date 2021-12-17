@@ -76,6 +76,7 @@ const GoalsProvider = ({ children }) => {
       .then((resp) => {
         console.log(resp.data);
         setGoals(resp.data);
+        console.log(goals);
       })
       .catch((_) => toast.error("Hábito não encontrado"));
   };

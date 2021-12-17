@@ -5,6 +5,7 @@ import GroupSearchCard from "../GroupSearchCard";
 import SearchInput from "../SearchInput";
 import { Container, PopupDiv, GroupSearchStyle, GroupSearchContainer, } from "./style"
 import { ActivityList } from '../GroupActivity/index'
+import Goals from "../Goals";
 
 
 
@@ -16,7 +17,8 @@ export const GroupListPopUp = ({ item, setIsConfigVisible, groupID }) => {
     <>
       <Container>
         <PopupDiv>
-          <ActivityList groupID={item.id} />
+          <Goals group={item} />
+          <ActivityList group={item} />
         </PopupDiv>
       </Container>
     </>
