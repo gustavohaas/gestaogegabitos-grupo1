@@ -5,6 +5,7 @@ export const StyleList = styled.li`
     margin-left: 10px;
     font-weight: 300;
     font-size: 16px;
+    width: 256px;
 `
 
 export const StyleListContainer = styled.div`

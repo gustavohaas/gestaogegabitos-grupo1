@@ -92,7 +92,6 @@ export const ActivityList = ({ group }) => {
                 {group.activities.map((item, index) => {
                     return (
                         <StyleListContainer>
-                            <Checkbox />
                             <StyleList key={index}>
                                 <ActivityCard>
                                     {item}

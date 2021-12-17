@@ -19,6 +19,7 @@ export const Card = styled.div`
     h5 {
       font-weight: 300;
       font-size: 1rem;
+      margin-left: 5px;
     }
   }
 

@@ -53,10 +53,6 @@ const Dashboard = () => {
         <h2>Olá, {username.replaceAll('"', "")}!</h2>
       </div>
       <DashboardContainer>
-        <Header />
-        <h2>
-          Olá, <br></br>{userName}
-        </h2>
         <div className="navContainer">
           <BlackButton onClick={() => setToggleProgress(false)} className="overviewButton">
             <BsListTask size="1em" class="listIcon" />
